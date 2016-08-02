@@ -1,7 +1,11 @@
+charset = "utf-8";
+
 /**
  * @authors Created by zhouzilong on 2016/8/2.
  * @version 1.0
  */
+
+// /**/ 代表不限层级
 
 var gulp = require('gulp'),
     // less = require('gulp-less'),
@@ -41,7 +45,7 @@ gulp.task('serve', function(){
            forms: true,
            scroll: false
        },
-       server: src,
+       server: "./src",
        port: 9001
    })
     // gulp.watch("./less/*.less", ['lessTask']);
@@ -49,7 +53,7 @@ gulp.task('serve', function(){
     //gulp.watch("./src/styles/sass/*.scss", ['sassTask']); // 1
     // gulp.watch("./js/*.js", ['jsminTask']);
     // gulp.watch("./css/*.css", ['autoPrefixer']);
-    //gulp.watch(["./src/**/*.html","./src/**/*.js"]).on('change', browserSync.reload); // 1
+    gulp.watch(["./src/**/*.html","./src/**/*.js"]).on('change', browserSync.reload); // 1
 });
 
 //gulp.task('sassTask', function(){
