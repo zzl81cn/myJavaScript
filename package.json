@@ -1,0 +1,22 @@
+{
+  "name": "myjavascript",
+  "version": "1.0.0",
+  "description": "origin&js framework project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzl81cn/myJavaScript.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "zzl81cn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zzl81cn/myJavaScript/issues"
+  },
+  "homepage": "https://github.com/zzl81cn/myJavaScript#readme"
+}
