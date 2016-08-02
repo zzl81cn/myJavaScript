@@ -2,6 +2,7 @@
  * Created by zhouzilong on 2016/8/2.
  */
 
+//http://www.jb51.net/article/80421.htm
 var arr_province=["请选择省份/城市","北京市","上海市","天津市","河南省","山东省","河北省"];
 var arr_city=[
     ["请选择城市/地区"],
@@ -19,8 +20,7 @@ function init(){
     city.style.width=150+"px";
     //给province赋值高度，才能在其里面写入内容
     province.length=arr_province.length;
-    for(var i=0;i<arr_province.length;i++)
-    {
+    for(var i=0;i<arr_province.length;i++){
         province.options[i].text=arr_province[i];
         province.options[i].value=arr_province[i];
     }
@@ -29,13 +29,13 @@ function init(){
     province.selectedIndex=index;
     //给city赋值高度，才能在其里面写入内容
     city.length=arr_city[index].length;
-    for(var j=0;j<arr_city[index].length;j++)
-    {
+    for(var j=0;j<arr_city[index].length;j++){
         city.options[j].text=arr_city[index][j];
         city.options[j].value=arr_city[index][j];
     }
 
-}
+};
+
 function select_change(num){
     var city=document.form1.city;
     city.length=0;
@@ -43,6 +43,20 @@ function select_change(num){
     for(var i=0; i<arr_city[num].length;i++)
     {
         city.options[i].text=arr_city[num][i];
+        console.log("city.options[i]");
+        console.log(i);
+        console.log(city.options[i]);
         city.options[i].value=arr_city[num][i];
     }
-}
+};
+
+//http://www.jb51.net/article/80421.htm
+function picZoom(){
+    var img0=document.getElementById("img0");
+    img0.onmouseover=function(){
+        img0.style.width=img0.offsetWidth*1.5+"px"
+    }
+    img0.onmouseout=function(){
+        img0.style.width=img0.offsetWidth/1.5+"px"
+    }
+};
