@@ -90,3 +90,8 @@ gulp.task('serve', function(){
 //});
 
 gulp.task('default', ['serve']);
+
+// Only watch less types files
+// gulp.task('default', function(){
+// 	gulp.watch('less/source.less',['lessTask']);
+// });
