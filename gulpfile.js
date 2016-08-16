@@ -5,11 +5,11 @@ charset = "utf-8";
  * @version 1.0
  */
 
-// /**/ 代表不限层级
+// /**/ 浠ｈ〃涓嶉檺灞傜骇
 
 var gulp = require('gulp'),
-    // less = require('gulp-less'),
-    // mincss = require('gulp-minify-css'),
+// less = require('gulp-less'),
+// mincss = require('gulp-minify-css'),
 //    notify = require('gulp-notify'),
 //    plumber = require('gulp-plumber'),
 //    sass = require('gulp-sass'),
@@ -36,18 +36,18 @@ var src = './src',
 
 // gulp.task('serve', ['lessTask','sassTask','jsminTask'], function(){
 gulp.task('serve', function(){
-   browserSync.init({
-       open: false,
-       //scrollProportionally: false, // scrollToTop
-       //点击，滚动和表单在任何设备上输入将被镜像到所有设备里
-       ghostMode: {
-           clicks: false,
-           forms: true,
-           scroll: false
-       },
-       server: "./src",
-       port: 9001
-   })
+    browserSync.init({
+        open: false,
+        //scrollProportionally: false, // scrollToTop
+        //鐐瑰嚮锛屾粴鍔ㄥ拰琛ㄥ崟鍦ㄤ换浣曡澶囦笂杈撳叆灏嗚闀滃儚鍒版墍鏈夎澶囬噷
+        ghostMode: {
+            clicks: false,
+            forms: true,
+            scroll: false
+        },
+        server: "./src",
+        port: 9001
+    })
     // gulp.watch("./less/*.less", ['lessTask']);
     // gulp.watch("./sass/*.scss", ['sassTask']);
     //gulp.watch("./src/styles/sass/*.scss", ['sassTask']); // 1
