@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            font-size: 16px;
+            font-size: calc(100% + 2 * (100vw - 375px) / 225);
+        }
+        @media screen and (min-width: 600px) {
+            .box {
+                font-size: calc(112.5% + 4 * (100vw - 600px) / 400);
+            }
+        }
+        @media screen and (min-width: 1000px) {
+            .box {
+                font-size: calc(137.5% + 5 * (100vw - 1000px) / 1000);
+            }
+        }
+
+        .box {
+            width: 100%;
+            max-width: 480px;
+            margin: auto;
+        }
+        .title {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .list {
+            overflow: hidden;
+        }
+        .image {
+            float: left;
+            width: 5em; height: 3.75em;
+            margin-right: 1em;
+        }
+        .content {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <h2 class="title">vw unit</h2>
+        <div class="list">
+        <img src="../images/4.jpg" class="image">
+            <div class="content">
+            由于Android4.4才开始支持vw单位，所以，基于视区宽度的排版和布局迟迟没有火起来，但是，显然，快了~~
+            </div>
+        </div>
+    </div>
+    <p><a href="javascript:void(0);" onclick="console.log('innerWidth: ' + window.innerWidth)">console log innerWidth</a>&nbsp;&nbsp;<a href="javascript:void(0);" onclick="console.log('outerWidth: ' + window.outerWidth);return false;">console log outerWidth</a></p>
+
+</body>
+</html>
