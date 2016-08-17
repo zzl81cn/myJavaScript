@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../../node_modules/jquery/dist/jquery.js"/>
+</head>
+<body>
+<ul class="tab-item">
+    <li class="active"><a href="">x1</a></li>
+    <li><a href="">x2</a></li>
+    <li><a href="">x3</a></li>
+</ul>
+<div class="tab-content active"></div>
+<div class="tab-content"></div>
+<div class="tab-content"></div>
+<script>
+    $(function(){
+        var $tab-li = $(".tab-item li");
+        $tab-li.click(function(){
+            this.addClass('active').siblings()
+        })
+    })
+</script>
+</body>
+</html>
