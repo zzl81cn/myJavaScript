@@ -2,25 +2,58 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="../../../node_modules/jquery/dist/jquery.js"/>
+    <title>最简易的选项卡</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .tab-item {
+            display: block;
+            height: 30px;
+        }
+        .tab-item li {
+            float: left;
+            margin-right: 10px;
+            list-style-type: none;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<ul class="tab-item">
-    <li class="active"><a href="">x1</a></li>
-    <li><a href="">x2</a></li>
-    <li><a href="">x3</a></li>
-</ul>
-<div class="tab-content active"></div>
-<div class="tab-content"></div>
-<div class="tab-content"></div>
+    <ul class="tab-item">
+        <li class="active">x1</li>
+        <li>x2</li>
+        <li>x3</li>
+    </ul>
+    <div class="tab-box">
+        <div class="tab-content">1111111</div>
+        <div class="tab-content hide">2222222</div>
+        <div class="tab-content hide">3333333333333</div>
+    </div>
+
+    <h5>jQuery速度再快，也无法与原生的javascript方法相比。所以有原生方法可以使用的场合，尽量避免使用jQuery。</h5>
+    <p id="noMuch1">noMuch1</p>
+    <p id="noMuch2">noMuch2</p>
+    <p>根据测试，this.id的速度比$(this).attr('id')快了20多倍。</p>
+
 <script>
     $(function(){
-        var $tab-li = $(".tab-item li");
-        $tab-li.click(function(){
-            this.addClass('active').siblings()
-        })
-    })
+        var $tab_li = $(".tab-item li");
+        $tab_li.click(function(){
+            $(this).addClass('active').siblings().removeClass('active');
+            var $index = $tab_li.index(this);
+            $('.tab-box>.tab-content').eq($index).show().siblings().hide();
+        });
+        $('#noMuch1').click(function(){
+            console.log($(this).attr('id'));
+        });
+        $('#noMuch2').click(function(){
+            console.log(this.id)
+        });
+    });
+    var date = new Date();
+    var hour = date.getHours();
+    console.log(hour);
 </script>
 </body>
 </html>
