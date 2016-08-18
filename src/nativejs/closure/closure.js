@@ -20,15 +20,50 @@ function simpleClosure(){
 var c = simpleClosure();
 c();//Hello zzl81cn
 
-/*
-function A(){
+
+function recycleClosure(){
     var count = 0;
-    function B(){
+    function innerRecycle(){
         count++;
         console.log(count);
     }
-    return B;
+    return innerRecycle;
 }
 
-var c = A();
-c();*/
+var recycle = recycleClosure();
+recycle();//1
+recycle();//2
+recycle();//3
+
+(function(document){
+    var viewport;
+    var obj = {
+        init:function(id){
+            viewport = document.querySelector("#"+id);
+        },
+        addChild:function(child){
+            viewport.appendChild(child);
+        },
+        removeChild:function(child){
+            viewport.removeChild(child);
+        }
+    }
+    window.jView = obj;
+})(document);
+
+var f = function(document){
+    var viewport;
+    var obj = {
+        init:function(id){
+            viewport = document.querySelector("#"+id);
+        },
+        addChild:function(child){
+            viewport.appendChild(child);
+        },
+        removeChild:function(child){
+            viewport.removeChild(child);
+        }
+    }
+    window.jView = obj;
+};
+f(document);
