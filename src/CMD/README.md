@@ -22,7 +22,7 @@ var util = {
 
 后来，一些程序员想到了方法解决私有属性的问题，有了下面这种写法：
 
-```
+```javascript
 var util = (function(window){
 
     var _prefix = '我想说：';
