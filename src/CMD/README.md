@@ -7,7 +7,7 @@
 为了解决模块化的问题。早期的程序员会把代码放到某个变量里。做一个最简单的命名空间的划分。
 
 比如一个工具模块：util
-
+```javascript
 var util = {
     _prefix:'我想说：',
     log:function(msg){ console.log(_prefix +msg)}
@@ -15,6 +15,7 @@ var util = {
     其他工具函数
     */
 }
+```
 
 这样所有的工具函数都托管在util这个对象变量里，极其简陋的弄了个伪命名空间。这样的局限性很大，因为我们可以随意修改。util不存在私有的属性。_prefix这个私有属性，后面可以随意修改。而我们很难定位到到底在哪边被修改了。
 
@@ -39,12 +40,16 @@ var util = (function(window){
 
 但是这只是在同一个文件里面的技巧，如果我们把util单独写到一个文件util.js。而我们程序的主代码是main.js那我们需要在页面里面一起用script标签引入：
 
+```html
 <script src="main.js"></script>
 <script src="util.js"></script>
+```
 
 这会有不少问题，最典型的比如如果我们的main.js如下
 
+```javascript
 util.log('我是模块主代码，我加载好了')
+```
 
 这个就执行不了，因为我们的util.js是在main.js后面引入的。所以执行main.js的内容的时候util还没定义呢。
 不止这个问题，再比如如果引入了其他的js文件，并且也定义了util这个变量。就会混乱。
