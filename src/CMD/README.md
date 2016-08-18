@@ -22,7 +22,7 @@ var util = {
 
 后来，一些程序员想到了方法解决私有属性的问题，有了下面这种写法：
 
-'''
+```
 var util = (function(window){
 
     var _prefix = '我想说：';
@@ -31,7 +31,7 @@ var util = (function(window){
     }
 
 })(window)
-'''
+```
 
 主要使用了匿名函数立即执行的技巧，这样 _prefix 是一个匿名函数里面的局部变量，外面无法修改。但是log这个函数里面又因为闭包的关系可以访问到_prefix。只把公用的方法暴露出去。
 
