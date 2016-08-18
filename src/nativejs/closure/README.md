@@ -67,7 +67,9 @@ recycle();//3
     window.jView = obj;
 })(document);
 ```
+
 以上代码可以改写成如下代码：
+
 ```javascript
 var f = function(document){
     var viewport;
@@ -86,13 +88,18 @@ var f = function(document){
 };
 f(document);
 ```
+
 在这段代码中似乎看到了闭包的影子，但 f 中没有任何返回值，似乎不具备闭包的条件，注意这句代码：
+
 ```javascript
 window.jView = obj;
-```javascript
-obj 是在 f 中定义的一个对象，这个对象中定义了一系列方法， 执行window.jView = obj 就是在 window 全局对象定义了一个变量 jView，并将这个变量指向 obj 对象，即全局变量 jView 引用了 obj 。而 obj 对象中的函数又引用了 f 中的变量 viewport ,因此 f 中的 viewport 不会被回收，会一直保存到内存中，所以这种写法满足闭包的条件。 另外，我们把obj赋值给window.jView ，那么，我们在整个window中可以直接调用obj 中的函数，但是函数内部的变量不会被收回，例如我们调用obj的init函数可以这么写：
+```
 
+obj 是在 f 中定义的一个对象，这个对象中定义了一系列方法， 执行window.jView = obj 就是在 window 全局对象定义了一个变量 jView，并将这个变量指向 obj 对象，即全局变量 jView 引用了 obj 。而 obj 对象中的函数又引用了 f 中的变量 viewport ,因此 f 中的 viewport 不会被回收，会一直保存到内存中，所以这种写法满足闭包的条件。 另外，我们把obj赋值给window.jView ，那么，我们在整个window中可以直接调用obj 中的函数，但是函数内部的变量不会被收回，例如我们调用obj的init函数可以这么写：
+```javascript
 window.jView.init("haorooms")
+```
+
 # 小结
 
 以上是对闭包最简单的理解。当然闭包还有更深入的理解。例如执行环境(execution context)、活动对象(activation object)以及作用域(scope)和作用域链(scope chain)的运行机制等等。当然，我们理解闭包先从简单开始，写的多了，理解的就越深了。本文也是对闭包的最简单的入门，希望通过这篇文章，大家对闭包有了一定的理解。
