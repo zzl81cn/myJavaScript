@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
-<body>
+<body onload="init()">
     <p>mutiple city_select</p>
 
     <form action="" name="form1">
         <label for="">所在地区</label>
-        <select name="province" id=""></select>
+        <select name="province" onchange="select_change(this.selectedIndex)"></select>
         <label for="">区/县</label>
-        <select name="city" id=""></select>
+        <select name="city"></select>
     </form>
+    <script type="text/javascript" src="js/city_select.js"></script>
 </body>
 </html>
