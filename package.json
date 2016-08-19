@@ -20,8 +20,14 @@
   },
   "homepage": "https://github.com/zzl81cn/myJavaScript#readme",
   "devDependencies": {
+    "bootstrap": "^3.3.7",
     "browser-sync": "^2.14.0",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-ruby-sass": "^2.1.0",
+    "gulp-uglify": "^2.0.0"
   },
   "dependencies": {
     "jquery": "^3.1.0",

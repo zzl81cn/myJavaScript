@@ -45,7 +45,7 @@ gulp.task('serve', function(){
             forms: true,
             scroll: false
         },
-        server: "./src",
+        server: "./",
         port: 9001
     })
     // gulp.watch("./less/*.less", ['lessTask']);
