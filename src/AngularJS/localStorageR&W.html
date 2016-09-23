@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="appStorage">
+
+<head>
+    <script data-require="angular.js@1.1.5" data-semver="1.1.5" src="angular.min.js"></script>
+    <script src="ngStorage.js"></script>
+
+    <script type="text/javascript">
+    angular.module('appStorage', ['ngStorage'])
+        .controller('StorageController', function($scope, $localStorage){
+            // https://github.com/fraywing/textAngular
+            
+            // Read and Write
+            // Pass $localStorage (or $sessionStorage) by reference to a hook under $scope in plain ol' JavaScript:
+            $scope.$storage = $localStorage.$default({
+                x: 9,
+                y: 0
+            });
+
+            $scope.deletex = function(){
+                delete $scope.$storage.x;
+            }
+            $scope.deletey = function(){
+                delete $localStorage.y;
+            }
+            $scope.deleteScopey = function(){
+                delete $scope.$storage.y;
+            }
+        });
+        // Usage from config phase
+        // To read and set values during the Angular config phase use the .get/.set functions provided by the provider.
+
+        // Prefix
+        // To change the prefix used by ngStorage use the provider function setKeyPrefix during the config phase.
+
+        // Custom serialization
+        // To change how ngStorage serializes and deserializes values (uses JSON by default) you can use your own functions.
+
+
+        // 
+
+/*        angular.module('app', [
+            'ngStorage'
+        ]).controller('Ctrl', function(
+                $scope,
+                $localStorage
+        ){
+            $scope.$storage = $localStorage.$default({
+                x: 42,
+                y: 0
+            });
+        });*/
+    </script>
+</head>
+
+<body ng-controller="StorageController">
+    <button ng-click="$storage.x = $storage.x + 1">{{$storage.x}}</button> + <button ng-click="$storage.y = $storage.y + 1">{{$storage.y}}</button> = {{$storage.x + $storage.y}}
+    <hr>
+    <button ng-click="deletex()">Delete $scope.$storage.x</button><br>
+    <button ng-click="deletey()">Delete $scope.$localStorage.y</button><br>
+    <button ng-click="deleteScopey()">Delete $scope.$storage.y</button><br>
+    <button ng-click="$storage.$reset({x:999})">Clear localStorage</button>
+</body>
+<!-- <body ng-controller="Ctrl">
+<button ng-click="$storage.x = $storage.x + 1">{{$storage.x}}</button> + <button ng-click="$storage.y = $storage.y + 1">{{$storage.y}}</button> = {{$storage.x + $storage.y}}
+</body> -->
+
+</html>

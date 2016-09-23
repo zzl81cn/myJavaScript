@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="appStorageR_WA">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script src="angular.min.js"></script>
+<script src="ngStorage.js"></script>
+<script type="text/javascript">
+	angular.module('appStorageR_WA', [
+		'ngStorage'
+		])
+		.controller('StorageController', function($scope, $localStorage){
+			// Read and Write Alternative
+			// If you're not fond of the presence of $scope.$storage, you can always use watchers:
+			$scope.x = $localStorage.x || 42;
+			$scope.y = $localStorage.y;
+
+			$scope.$watch('[x, y]', function(){
+				$localStorage.x = $scope.x;
+				$localStorage.y = $scope.y;
+			}, true);
+
+			$scope.$watch(function(){
+				return  angular.toJson($localStorage);
+			}, function(){
+				$scope.x = $localStorage.x;
+				$scope.y = $localStorage.y;
+			})
+		});
+/*	angular.module('app', [
+	'ngStorage'
+	]).
+
+	controller('Ctrl', function(
+	$scope,
+	$localStorage
+	){
+	$scope.x = $localStorage.x || 42;
+	$scope.y = $localStorage.y;
+
+	$scope.$watch('[x, y]', function() {
+	    $localStorage.x = $scope.x;
+	    $localStorage.y = $scope.y;
+	}, true);
+
+	$scope.$watch(function() {
+	    return angular.toJson($localStorage);
+	}, function() {
+	    $scope.x = $localStorage.x;
+	    $scope.y = $localStorage.y;
+	});
+	});*/
+
+</script>
+</head>
+<body ng-controller="StorageController">
+    <button ng-click="x = x + 1">{{x}}</button> + <button ng-click="y = y + 1">{{y}}</button> = {{x + y}}
+</body>
+</html>

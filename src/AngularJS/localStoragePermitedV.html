@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html ng-app="appStorage">
+
+<head>
+    <style>
+        .text-warning {
+            color: red;
+        }
+        .text-muted {
+            color: #333;
+        }
+    </style>
+    <script data-require="angular.js@1.1.5" data-semver="1.1.5" src="angular.min.js"></script>
+    <script src="ngStorage.js"></script>
+
+    <script type="text/javascript">
+    angular.module('appStorage', ['ngStorage'])
+        .controller('StorageController', function($scope, $localStorage){
+/*            $scope.$storage = $localStorage.$default({
+                x: 9,
+                y: 0
+            });*/
+
+            $scope.$storage = $localStorage;
+
+            $scope.addJunk = function(){
+                $localStorage.junk = {
+                    string: 'I\'m a string',
+                    number: 123e-5,
+                    float: 1.23456789 - (1.23456789 % 0.2),
+                    boolean: true,
+                    object: {
+                        array: [
+                            [0],
+                            ['1','2']
+                        ]
+                    },
+                    null: null,
+                    infinity: Infinity,
+                    nan: NaN
+                    // ,undefined: '<undefined></undefinded>',
+                    // function: function(){
+                    //     return false;
+                    // };
+                };
+            }
+
+            $scope.initValueX = function($scope, $localStorage){
+                $scope.$storage = $localStorage.default({
+                    x: 0
+                })
+            }
+
+            // Delete
+            // Plain ol' JavaScript again, what else could you better expect?
+            $scope.deletex = function(){
+                delete $scope.$storage.x;
+            }
+            $scope.deletey = function(){
+                delete $localStorage.y;
+            }
+            $scope.deleteScopey = function(){
+                delete $scope.$storage.y;
+            }
+        });
+
+/*        angular.module('app', [
+            'ngStorage'
+        ]).controller('Ctrl', function(
+                $scope,
+                $localStorage
+        ){
+            $scope.$storage = $localStorage.$default({
+                x: 42,
+                y: 0
+            });
+        });*/
+    </script>
+</head>
+
+<body ng-controller="StorageController">
+    <button ng-click="addJunk()">addJunk</button>
+    <div>{{$storage.junk}}</div>
+    <button ng-click="$storage.x = $storage.x + 1">{{$storage.x}}</button> + <button ng-click="$storage.y = $storage.y + 1">{{$storage.y}}</button> = {{$storage.x + $storage.y}}
+    <hr>
+
+    <label>init Value</label>
+    <button ng-click="$storage.$reset({x:1,y:1})">init value for x</button>
+    <hr>
+
+    <button ng-click="deletex()">Delete $scope.$storage.x</button><br>
+    <button ng-click="deletey()">Delete $scope.$localStorage.y</button><br>
+    <button ng-click="deleteScopey()">Delete $scope.$storage.y</button><br>
+    <hr>
+    <h2>Delete Everyting</h2>
+    <p class="text-m">If you wish to clear the Storage in one go, use the $reset() method:</p>
+    <button ng-click="$storage.$reset({x:999})">Clear localStorage</button>
+</body>
+<!-- <body ng-controller="Ctrl">
+<button ng-click="$storage.x = $storage.x + 1">{{$storage.x}}</button> + <button ng-click="$storage.y = $storage.y + 1">{{$storage.y}}</button> = {{$storage.x + $storage.y}}
+</body> -->
+
+</html>
