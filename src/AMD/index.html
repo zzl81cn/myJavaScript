@@ -5,6 +5,45 @@
 	<title>Title</title>
 </head>
 <body>
+	<h1 id="hello">xx</h1>
 
+	<script type="text/javascript" src="scripts/require.js"></script>
+	<script type="text/javascript">
+		require.config({
+			baseUrl: 'libs',
+			paths: {
+				'jquery': 'jquery-2.2.4/dist/jquery'
+			}
+		});
+
+		require(['jquery'], function ($) {
+			// start code
+			$('#hello').html(function () {
+				return 'Hello RequireJS';
+			});
+		});
+
+//		一般的jQuery 插件格式：
+		/*(function ($) {
+			$.fn.myPlugin = function () {
+				//你自己的插件代码
+			};
+		})(jQuery);*/
+
+//		稍微修改一下就可以使用Require.js加载一个jQuery插件：
+		/*;(function (factory) {
+			if (typeof define === "function" && define.amd) {
+				// AMD模式
+				define([ "jquery" ], factory);
+			} else {
+				// 全局模式
+				factory(jQuery);
+			}
+		}(function ($) {
+			$.fn.jqueryPlugin = function () {
+				//插件代码
+			};
+		}));*/
+	</script>
 </body>
 </html>
