@@ -3,9 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
+	<style>
+		.invisible {
+			display: none;
+		}
+	</style>
 </head>
 <body>
-	<h1 id="hello">xx</h1>
+	<h1 id="hello" class="invisible">xx</h1>
 
 	<script type="text/javascript" src="libs/require.js"></script>
 	<script type="text/javascript">
@@ -17,7 +22,7 @@
 			}
 		});
 
-		// 先把下面的代码独立到hello.js里面
+		// Rebuild to hello.js
 		/*require(['jquery'], function ($) {
 			// start code
 			$('#hello').html(function () {
@@ -26,7 +31,21 @@
 		});*/
 
 		// 独立的hello.js就可以require进来了
-		require(['hello']);
+		var selector1 = '#hello';
+		require(['hello'], function (selector1) {});
+		var reqUrl = {
+			datasource: {
+				url: ' /faverGoods?type=1&catId=101',
+				methodType: 'get'
+			}
+		};
+
+		// 先注掉，还得看看require定义模块
+		/*require(['getMallData'], function (getMallData) {
+			getMallData.getData(reqUrl.datasource.url, reqUrl.datasource.methodType)
+		});*/
+
+
 
 		//		一般的jQuery 插件格式：
 		/*(function ($) {
