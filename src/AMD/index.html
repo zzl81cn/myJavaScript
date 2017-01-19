@@ -7,23 +7,28 @@
 <body>
 	<h1 id="hello">xx</h1>
 
-	<script type="text/javascript" src="scripts/require.js"></script>
+	<script type="text/javascript" src="libs/require.js"></script>
 	<script type="text/javascript">
 		require.config({
-			baseUrl: 'libs',
+//			baseUrl: 'libs',
 			paths: {
-				'jquery': 'jquery-2.2.4/dist/jquery'
+				'jquery': 'libs/jquery-2.2.4/dist/jquery',
+				'hello': 'scripts/hello'
 			}
 		});
 
-		require(['jquery'], function ($) {
+		// 先把下面的代码独立到hello.js里面
+		/*require(['jquery'], function ($) {
 			// start code
 			$('#hello').html(function () {
 				return 'Hello RequireJS';
 			});
-		});
+		});*/
 
-//		一般的jQuery 插件格式：
+		// 独立的hello.js就可以require进来了
+		require(['hello']);
+
+		//		一般的jQuery 插件格式：
 		/*(function ($) {
 			$.fn.myPlugin = function () {
 				//你自己的插件代码
