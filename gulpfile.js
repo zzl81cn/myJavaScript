@@ -18,8 +18,11 @@ var gulp = require('gulp'),
 //    jsmin = require('gulp-uglify'),
     browserSync = require('browser-sync').create();
 
-var src = './src',
-    dest = './dist';
+var	src = './src',
+	srcAMD = './src/AMD',
+	staticSrc = ['./src/AMD'],
+	proxyURL = 'http://rap.taobao.org/',
+	dest = './dist';
 
  //gulp.task('sassTask', function(){
  //	return gulp.src('./src/styles/*.scss')
@@ -46,27 +49,27 @@ gulp.task('sassTask', function(){
         .pipe(browserSync.stream());
 });
 
-//gulp.task('lessTask', function(){
-//    // multiple files change to array type (['','',...])
-//    return gulp.src('less/*.less')
-//        .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-//        .pipe(less())
-//        // .pipe(mincss({compatibility: 'ie7'}))
-//        // .pipe(mincss())
-//        .pipe(autoprefixer({
-//            browsers: ['last 2 versions','Firefox <= 20'],
-//            cascade: false
-//        }))
-//
-//        .pipe(gulp.dest('css'))
-//        .pipe(browserSync.stream());
-//});
-//
-//gulp.task('jsminTask', function(){
-//    return gulp.src('./js/*.js')
-//        .pipe(jsmin())
-//        .pipe(gulp.dest('./js-min'));
-//});
+/*gulp.task('lessTask', function(){
+   // multiple files change to array type (['','',...])
+   return gulp.src('less/!*.less')
+       .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+       .pipe(less())
+       // .pipe(mincss({compatibility: 'ie7'}))
+       // .pipe(mincss())
+       .pipe(autoprefixer({
+           browsers: ['last 2 versions','Firefox <= 20'],
+           cascade: false
+       }))
+
+       .pipe(gulp.dest('css'))
+       .pipe(browserSync.stream());
+});*/
+
+gulp.task('jsminTask', function(){
+   return gulp.src('./js/*.js')
+       .pipe(jsmin())
+       .pipe(gulp.dest('./js-min'));
+});
 
 // gulp.task('serve', ['lessTask','sassTask','jsminTask'], function(){
 gulp.task('serve',['sassTask'], function(){
@@ -79,9 +82,25 @@ gulp.task('serve',['sassTask'], function(){
             forms: true,
             scroll: false
         },
-        server: "./",
-        port: 9001
-    })
+		// staticPath proxy mode must disable
+		// server: srcAMD,
+
+        port: 9001,
+		// Disable UI completely
+		ui: false,
+		// Directory mode
+		// directory: true,
+		// Proxy start
+		// For proxyStaticPath
+		serveStatic: staticSrc,
+		proxy: {
+			// domain
+			target: proxyURL
+			// When your app also uses web socket
+			// ,ws:true
+		}
+
+	});
     // gulp.watch("./less/*.less", ['lessTask']);
     gulp.watch("./src/styles/*.scss", ['sassTask']); // 1
     // gulp.watch("./js/*.js", ['jsminTask']);
