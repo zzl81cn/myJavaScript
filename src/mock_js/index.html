@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
     <!--<link rel="stylesheet" href="styles/css/homepage.css">-->
     <link rel="stylesheet" href="../styles/style.css"/>
-    <script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <!--<script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>-->
     <script type="text/javascript" src="../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <!-- <script src="http://requirejs.org/docs/release/2.1.16/comments/require.js"></script> -->
-    <script type="text/javascript" src="../../node_modules/requirejs/require.js"></script>
+     <script src="//requirejs.org/docs/release/2.1.16/comments/require.js"></script>
+    <!--<script type="text/javascript" src="../../node_modules/requirejs/require.js"></script>-->
     <!-- <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mock" src="http://mockjs.com/dist/mock.js"></script> -->
 </head>
 <body>
@@ -22,7 +23,8 @@
     // 配置 Mock 路径
     require.config({
         paths: {
-            mock: 'http://mockjs.com/dist/mock'
+//        	jquery: './node_modules/jquery/dist/jquery.js',
+            mock: '//mockjs.com/dist/mock'
         }
     })
 
