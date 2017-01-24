@@ -20,7 +20,8 @@ var gulp = require('gulp'),
 
 var	src = './src',
 	srcAMD = './src/AMD',
-	staticSrc = ['./src/AMD'],
+	staticSrc = ['./src'],
+	staticSrcAMD = ['./src/AMD'],
 	proxyURL = 'http://rap.taobao.org/',
 	dest = './dist';
 
