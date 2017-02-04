@@ -13,7 +13,8 @@ document.getElementById('scrollHeight').addEventListener('click', function () {
 	var text = document.createTextNode(document.body.scrollHeight);
 	outputArea.innerHTML = text.textContent;
 });
-document.getElementById('scrollTop').addEventListener('click', function () {
+document.getElementById('scrollTop').addEventListener('click', function (e) {
 	var text = document.createTextNode(document.body.scrollTop);
 	outputArea.innerText = text.textContent;
+	console.log(e);
 })
