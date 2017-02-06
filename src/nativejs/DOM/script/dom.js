@@ -14,7 +14,7 @@ document.getElementById('scrollHeight').addEventListener('click', function () {
 	outputArea.innerHTML = text.textContent;
 });
 document.getElementById('scrollTop').addEventListener('click', function (e) {
-	var text = document.createTextNode(document.body.scrollTop);
+	var text = document.createTextNode(document.documentElement.scrollTop || document.body.scrollTop);
 	outputArea.innerText = text.textContent;
 	console.log(e);
 })
