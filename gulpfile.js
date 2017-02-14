@@ -39,7 +39,7 @@ var	src = './src',
  //});
 
 gulp.task('sassTask', function(){
-    return sass('./src/styles/*.scss')
+    return sass('./src/**/*.scss')
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .on('error', sass.logError)
         .pipe(autoprefixer({
@@ -103,7 +103,7 @@ gulp.task('serve',['sassTask'], function(){
 
 	});
     // gulp.watch("./less/*.less", ['lessTask']);
-    gulp.watch("./src/styles/*.scss", ['sassTask']); // 1
+    gulp.watch("./src/**/*.scss", ['sassTask']); // 1
     // gulp.watch("./js/*.js", ['jsminTask']);
     // gulp.watch("./css/*.css", ['autoPrefixer']);
     gulp.watch(["./src/**/*.html","./src/**/*.js"]).on('change', browserSync.reload); // 1

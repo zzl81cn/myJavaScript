@@ -1,0 +1,30 @@
+/*.grid {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	grid-template-rows: 100px 1fr auto;
+}
+.title {
+	grid-column: 1;
+	grid-right: 1;
+}
+.menu {
+	grid-column: 1;
+	grid-row: 2 / span 2;
+}
+.main {
+	grid-column: 2;
+	grid-row: 1 /span 2;
+}
+.footer {
+	grid-column: 2;
+	grid-row: 3;
+}*/
+.grid {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	grid-template-rows: 100px 1fr auto;
+}
+.title  { grid-column: 1; grid-row: 1;          }
+.menu   { grid-column: 1; grid-row: 2 / span 2; }
+.main   { grid-column: 2; grid-row: 1 / span 2; }
+.footer { grid-column: 2; grid-row: 3;          }

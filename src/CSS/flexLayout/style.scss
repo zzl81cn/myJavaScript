@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+#flexH {
+	display: flex;
+	/*默认值*/
+	flex-direction: row;
+	.item {
+		background-color: #660;
+	}
+	.a {
+		width: 200px;
+	}
+	.b {
+		flex-grow: 1;
+	}
+
+}
+#flexV {
+	display: flex;
+	flex-direction: column;
+	.item {
+		background-color: #066;
+		text-align: center;
+	}
+	.b {
+		flex-grow: 2;
+	}
+}
