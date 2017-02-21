@@ -15,6 +15,7 @@
 function simpleClosure(){
     function innerFunc(){
         console.log("Hello zzl81cn");
+		// or
 		document.write('Hello zzl81cn!');
     }
     return innerFunc;
