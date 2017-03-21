@@ -6,9 +6,9 @@ require.config({
 	// baseUrl: './src/AMD',
 	baseUrl: './',
 	paths: {
-		'jquery': 'libs/jquery-2.2.4/dist/jquery',
-		'hello': 'scripts/hello',
-		'getMallData': 'scripts/getMallData'
+		'jquery': '../../jQuery/jquery',
+		'hello': 'hello',
+		'getMallData': 'getMallData'
 		// ,'executeRep': 'scripts/executeReplace'
 	},
 	shim: {
