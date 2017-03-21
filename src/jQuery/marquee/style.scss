@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+.nav {
+  background-color: #cfcfcf;
+  clear: both;
+  display: flex;
+  flex-direction: row;
+  .brand {
+    //float: left;
+  }
+  #marquee {
+    //float: left;
+    width: 300px;
+    overflow: hidden;
+    .marquee-list {
+      float: left;
+      //display: inline-block;
+    }
+    #marquee-list2 {
+      //display: none;
+    }
+    /*.marquee-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      white-space: nowrap;
+      width: 100%;
+      li {
+        float: left;
+        margin-left: 10px;
+        display: inline-block;
+      }
+    }*/
+  }
+}
