@@ -8,7 +8,8 @@ $(function () {
 	var speed = 10;    //滚动速度值，值越大速度越慢
 	var nnn = 300 / demo1.offsetWidth;
 	// 21
-	console.log(demo1.offsetWidth);
+	console.log('demo.offsetWidth ', demo.offsetWidth);
+	console.log('demo1.offsetWidth ', demo1.offsetWidth);
 	/*for (i = 0; i < nnn; i++) {
 		// demo1.innerHTML += "<br />" + demo1.innerHTML
 		demo1.innerHTML += demo1.innerHTML
@@ -22,7 +23,7 @@ $(function () {
 		if (demo2.offsetLeft - demo.scrollLeft <= 0) {
 			//demo跳到最顶端
 			demo.scrollLeft -= demo1.offsetWidth;
-			console.log('ha!');
+			// console.log('ha!');
 		} else {
 			//console.log('oh!');
 			// 每次加1
