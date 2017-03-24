@@ -1,5 +1,6 @@
 /**
  * Created by admin on 2016/9/28.
+ * Modifyy Array[[],[]] 2017/3/24.
  */
 
 //    http://www.w3school.com.cn/jsref/jsref_splice.asp
