@@ -37,6 +37,10 @@ abc.splice(1,0,"meizu");
 console.log(abc);
 // ["apple", "meizu", "sumsung"];
 
+arrPop = [1,2,3,4];
+console.log(arrPop.pop());
+// 4
+
 
 // 降维数组操作
 // http://web.jobbole.com/85129/
