@@ -40,6 +40,16 @@ console.log(abc);
 arrPop = [1,2,3,4];
 console.log(arrPop.pop());
 // 4
+console.log(arrPop.join(","));
+// 1,2,3
+
+arrPush = [1,2,3];
+arrPush.push(5);
+// 4
+
+arrReverse = [1,2,3];
+arrReverse.reverse();
+// [3,2,1]
 
 
 // 降维数组操作
