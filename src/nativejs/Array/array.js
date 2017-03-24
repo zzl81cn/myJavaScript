@@ -51,6 +51,10 @@ arrReverse = [1,2,3];
 arrReverse.reverse();
 // [3,2,1]
 
+arrShift = [1,2,3];
+arrShift.shift();
+// 1
+
 
 // 降维数组操作
 // http://web.jobbole.com/85129/
