@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<form action="">
+	<input id="aaa" type="text" placeholder="xxx">
+</form>
+<p id="bbb">xx</p>
+<script type="text/javascript" src="../jquery.js"></script>
+<script>
+	$('#aaa').keyup(function() {
+		console.log('.keyup = ' + $(this).val());
+//		$('#bbb').html($(this).val());
+		$('#bbb').hide();
+	});
+
+	jQuery(function(){
+
+		// keyup event
+		$('#TextValue1').on('keyup', function() {
+			console.log('.on(keyup) = ' + $(this).val());
+		});
+
+
+		$('#TextValue1').keyup(function() {
+			console.log('.keyup = ' + $(this).val());
+		});
+
+
+		// change event
+		$('#TextValue1').on('change', function() {
+			console.log('.on(change) = ' + $(this).val());
+		});
+
+		$('#TextValue1').change(function() {
+			console.log('.change = ' + $(this).val());
+		});
+
+	});
+</script>
+</body>
+</html>
