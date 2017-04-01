@@ -1,0 +1,17 @@
+body {
+  margin: 0; }
+
+#mainNav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around; }
+  #mainNav li {
+    display: block;
+    color: #333;
+    background-color: #fcfcfc; }
+    #mainNav li.active {
+      background-color: #e3e3e3; }
+
+/*# sourceMappingURL=css.css.map */
