@@ -1,0 +1,26 @@
+.nav {
+  background-color: #cfcfcf;
+  clear: both;
+  display: flex;
+  flex-direction: row; }
+  .nav #marquee {
+    margin: 10px 0;
+    width: 300px;
+    height: 45px;
+    overflow: hidden;
+    /*.marquee-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      white-space: nowrap;
+      width: 100%;
+      li {
+        float: left;
+        margin-left: 10px;
+        display: inline-block;
+      }
+    }*/ }
+    .nav #marquee .marquee-list {
+      float: left; }
+
+/*# sourceMappingURL=style.css.map */
