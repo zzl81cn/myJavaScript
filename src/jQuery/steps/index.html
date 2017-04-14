@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Step</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="rmp"> </div>
+<div class="control">
+	<button prev> Prev</button>
+	<button next> Next</button>
+</div>
+<div class="control">
+	<button modal data-target="modal"> Modal</button>
+</div>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+<script src="../jquery.js"></script>
+<script src="http://letmefree.github.io/jquery.roadmap.js"></script>
+<link href="http://letmefree.github.io/jquery.roadmap.css" rel="stylesheet" />
+<script type="text/javascript">
+	$(function () {
+		$("button[modal]").click(function () {
+			var modalHtml = '<div class="modal-mask">' +
+					'<div class="modal"><button class="close">close</button></div>'
+				'</div>';
+			$('body').append(modalHtml);
+		});
+
+	})
+</script>
+<script type="text/javascript">
+	$(function() {
+		var rmp = $("#rmp").Roadmap({
+			width: 650,                         //ширина плагина в пикселях
+			allowJump: false,                    //позволяет перемещаться между чекпоинтами в произвольном порядке
+			formsContainer: "#rmp_forms",       //место, где находятся формы для заполнения
+			checkpoints: [                      //массив чекпоинтов
+				{
+					text: "First",
+					form: "div.account",
+					validate: []
+				},
+				{
+					text: "Second",
+					form: "div.personal",
+					validate: [ { item: "input[name=init]", pattern: /^[A-zА-я0-9 ]{5,}$/ } ]
+				},
+				{
+					text: "Third",
+					form: "div.confirm",
+				},
+				{
+					text: "Fourth",
+					form: "div.finished"
+				}],
+			voyagerPosition: 0,                 												//Стартовое положение ползунка
+			onInit: null,                       												//Хендлер, выполняющийся при инициализации
+			ckeckpointNext: function (i) { console.log("voyager pos:" + i); },               	//Хендлер, выполняющийся при вызове $.Roadmap.MoveNext(), передается текущее положение
+			ckeckpointPrev: function (i) { console.log("voyager pos:" + i); },               	//Хендлер, выполняющийся при вызове $.Roadmap.MovePrev(), передается текущее положение
+
+		});
+		$("button[prev]").click(function () {
+			rmp.MovePrev();
+		});
+
+		$("button[next]").click(function () {
+			rmp.MoveNext();
+		});
+
+	});
+</script>
+</body>
+</html>
