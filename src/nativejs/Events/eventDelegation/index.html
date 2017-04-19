@@ -5,45 +5,45 @@
     <title>Title</title>
 </head>
 <body>
-<ul id="myList">
-    <li id="list1">xx1</li>
-    <li id="list2">xx2</li>
-    <li id="list3">xx3</li>
-</ul>
-<!--讲解JavaScript的事件委托技术.
-讲解之前先来讲讲性能.
-如果一个整体页面里有大量的按钮.我们就要为每一个按钮绑定事件处理程序.这样就会影响性能了.
-首先每个函数都是对象,对象就会占用很多内存.内存中的对象越多,性能就越差.
-其次,dom访问次数增多,就会导致延迟加载页面.事实上,从如何来利用好事件处理程序,还是有很好的解决方案的.
-一、事件委托
-对事件处理程序过多的问题解决的方案就是事件委托技术.
-事件委托技术利用了事件冒泡.只需指定一个事件处理程序.
-我们可以为某个需要触发事件的父元素来绑定事件处理程序.-->
+    <ul id="myList">
+        <li id="list1">xx1</li>
+        <li id="list2">xx2</li>
+        <li id="list3">xx3</li>
+    </ul>
+    <!--讲解JavaScript的事件委托技术.
+    讲解之前先来讲讲性能.
+    如果一个整体页面里有大量的按钮.我们就要为每一个按钮绑定事件处理程序.这样就会影响性能了.
+    首先每个函数都是对象,对象就会占用很多内存.内存中的对象越多,性能就越差.
+    其次,dom访问次数增多,就会导致延迟加载页面.事实上,从如何来利用好事件处理程序,还是有很好的解决方案的.
+    一、事件委托
+    对事件处理程序过多的问题解决的方案就是事件委托技术.
+    事件委托技术利用了事件冒泡.只需指定一个事件处理程序.
+    我们可以为某个需要触发事件的父元素来绑定事件处理程序.-->
 
-<!--现在我们要为这3个li绑定事件处理程序..
-只需要在ul绑定事件处理程序.
-js代码:-->
+    <!--现在我们要为这3个li绑定事件处理程序..
+    只需要在ul绑定事件处理程序.
+    js代码:-->
 
-<script type="text/javascript">
-    /**
-     * addEventListener的使用方式：
+    <script type="text/javascript">
+        /**
+         * addEventListener的使用方式：
 
-	 target.addEventListener(type, listener, useCapture);
+         target.addEventListener(type, listener, useCapture);
 
-	 target： 文档节点、document、window 或 XMLHttpRequest。
-	 type： 字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等。
-	 listener ：实现了 EventListener 接口或者是 JavaScript 中的函数。
-	 useCapture ：是否使用捕捉，一般用 false 。例如：document.getElementById(“testText”).addEventListener(“keydown”, function (event) { alert(event.keyCode); }, false);
-     * */
-    document.getElementById('myList').addEventListener('click', function (e) {
-        // var e = e || window.event;
-        var e = e?e:window.event;
-        switch (e.target.id) {
-            case 'list1': alert('list1');break;
-            case 'list2': alert('list2');break;
-            case 'list3': alert('list3');break;
-        }
-	}, false)
-</script>
+         target： 文档节点、document、window 或 XMLHttpRequest。
+         type： 字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等。
+         listener ：实现了 EventListener 接口或者是 JavaScript 中的函数。
+         useCapture ：是否使用捕捉，一般用 false 。例如：document.getElementById(“testText”).addEventListener(“keydown”, function (event) { alert(event.keyCode); }, false);
+         * */
+        document.getElementById('myList').addEventListener('click', function (e) {
+            // var e = e || window.event;
+            var e = e?e:window.event;
+            switch (e.target.id) {
+                case 'list1': alert('list1');break;
+                case 'list2': alert('list2');break;
+                case 'list3': alert('list3');break;
+            }
+        }, false)
+    </script>
 </body>
 </html>
