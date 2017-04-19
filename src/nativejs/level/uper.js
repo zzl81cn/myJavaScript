@@ -4,6 +4,7 @@
  * @date    2016-08-26 17:10:24
  * @version $Id$
  * http://www.cnblogs.com/xxcanghai/p/5189353.html
+ * 变量声明提升
  */
 
 function Foo() {
