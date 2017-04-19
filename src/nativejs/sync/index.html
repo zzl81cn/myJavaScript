@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sync</title>
+</head>
+<body>
+    <button onclick="sync()" class="sync">sync</button>
+    <script type="text/javascript">
+        function sync() {
+            for(var i = 0;i < 5; i++) {
+                setTimeout(function () {
+                    document.write('i ', i);
+                }, 1000)
+            };
+            document.write(i);
+        }
+    </script>
+</body>
+</html>
