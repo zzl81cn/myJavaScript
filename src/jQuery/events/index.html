@@ -83,7 +83,9 @@
 			$(e.target).parents('tr').remove();
 		}
 	})*/
-	$('tbody').delegate('.del', 'click', function () {
+
+	// 利用事件委托，on作为jquery1.7+的方法用在这里
+	$('tbody').on('click', '.del', function () {
 		$(this).parents('tr').remove();
 	})
 </script>
