@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Listener</title>
+</head>
+<body>
+	<!--http://www.cnblogs.com/eason-chan/p/3659790.html-->
+	<input id="a" type="button" value="点我" />注意执行网页时该按扭并没有事件<br/>
+	<input id="b" type="button" value="点我绑定事件" onclick="att_Event()" />点击该按扭为上面的按扭绑定事件<br/>
+	<h3>注意该实例必须在FireFox(火狐浏览器下运行).你可以根据实际情况，来为他绑定多个不同的事件！addEventListener与<a href="http://hi.baidu.com/jiang_yy_jiang">attachevent</a>不一样的是，该方法不可以把同一事件绑定多次，但支持把不同的事件绑定到一个元素．请使用非IE浏览器测试该例。</h3>
+
+	<script type="text/javascript">
+		function att_Event() {
+			var a = document.getElementById("a");
+			a.value = "点我有事件";
+			if (document.all) {//IE
+				window.alert("IE");
+				a.attachEvent("onclick", Hello_ok);
+			}
+			else {//FF,Chrome，Safari
+//				window.alert(document.all);
+				a.addEventListener("click", Hello_ok, false);
+			}
+		}
+		function Hello_ok() {
+			alert("您好，我测试attachEvent时间方法！");
+		}
+	</script>
+</body>
+</html>
