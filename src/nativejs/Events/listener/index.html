@@ -8,8 +8,13 @@
 	<!--http://www.cnblogs.com/eason-chan/p/3659790.html-->
 	<input id="a" type="button" value="点我" />注意执行网页时该按扭并没有事件<br/>
 	<input id="b" type="button" value="点我绑定事件" onclick="att_Event()" />点击该按扭为上面的按扭绑定事件<br/>
-	<h3>注意该实例必须在FireFox(火狐浏览器下运行).你可以根据实际情况，来为他绑定多个不同的事件！addEventListener与<a href="http://hi.baidu.com/jiang_yy_jiang">attachevent</a>不一样的是，该方法不可以把同一事件绑定多次，但支持把不同的事件绑定到一个元素．请使用非IE浏览器测试该例。</h3>
+	<h5>注意该实例必须在FireFox(火狐浏览器下运行).你可以根据实际情况，来为他绑定多个不同的事件！addEventListener与<a href="http://hi.baidu.com/jiang_yy_jiang">attachevent</a>不一样的是，该方法不可以把同一事件绑定多次，但支持把不同的事件绑定到一个元素．请使用非IE浏览器测试该例。</h5>
 
+	<div id="l1">l1
+		<div id="l2">l2</div>
+	</div>
+	<hr>
+	<div onclick="clickHandler()">l3</div>
 	<script type="text/javascript">
 		function att_Event() {
 			var a = document.getElementById("a");
@@ -25,6 +30,27 @@
 		}
 		function Hello_ok() {
 			alert("您好，我测试attachEvent时间方法！");
+		}
+	</script>
+	<script>
+		var l1 = document.getElementById('l1'),
+			l2 = document.getElementById('l2');
+
+		// 如果设置为true，就在捕获阶段触发，否则到冒泡阶段才会触发。
+		// 可见currentTarget总是和this相同，而target指向事实上被点击的目标DOM对象。
+
+		l1.addEventListener('click', function (e) {
+			console.log('l1 capture: ', this, 'Current target: ', e.currentTarget, 'Target: ', e.target)
+		}, true);
+		l2.addEventListener('click', function (e) {
+			console.log('l2 target: ', this, 'Current target: ', e.currentTarget, 'Target: ', e.target)
+		});
+		l1.addEventListener('click', function (e) {
+			console.log('l1 bubble: ', this, 'Current target: ', e.currentTarget, 'Target: ', e.target)
+		});
+
+		function clickHandler() {
+			console.log('Click handler: ', this);
 		}
 	</script>
 </body>
