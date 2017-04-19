@@ -25,6 +25,16 @@
 js代码:-->
 
 <script type="text/javascript">
+    /**
+     * addEventListener的使用方式：
+
+	 target.addEventListener(type, listener, useCapture);
+
+	 target： 文档节点、document、window 或 XMLHttpRequest。
+	 type： 字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等。
+	 listener ：实现了 EventListener 接口或者是 JavaScript 中的函数。
+	 useCapture ：是否使用捕捉，一般用 false 。例如：document.getElementById(“testText”).addEventListener(“keydown”, function (event) { alert(event.keyCode); }, false);
+     * */
     document.getElementById('myList').addEventListener('click', function (e) {
         // var e = e || window.event;
         var e = e?e:window.event;
@@ -33,7 +43,7 @@ js代码:-->
             case 'list2': alert('list2');break;
             case 'list3': alert('list3');break;
         }
-	})
+	}, false)
 </script>
 </body>
 </html>
