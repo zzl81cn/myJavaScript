@@ -26,7 +26,8 @@ js代码:-->
 
 <script type="text/javascript">
     document.getElementById('myList').addEventListener('click', function (e) {
-        var e = e || window.event;
+        // var e = e || window.event;
+        var e = e?e:window.event;
         switch (e.target.id) {
             case 'list1': alert('list1');break;
             case 'list2': alert('list2');break;
