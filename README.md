@@ -14,3 +14,7 @@
 ### water fall layout
 
 ### js eval()
+
+## js OOP 20170503
+
+### jquery Validator
