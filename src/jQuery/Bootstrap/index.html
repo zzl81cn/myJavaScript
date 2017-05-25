@@ -30,6 +30,7 @@
 							<label class="checkbox-inline"><input type="checkbox" name="info" value="3">熟悉</label>
 						</div>
 					</div>
+					<button type="button" class="btn btn-default" id="countDown">倒计时</button>
 				</form>
 			</div>
 		</div>
@@ -41,6 +42,36 @@
 		// form里readonly与disabled的区别：http://www.jianshu.com/p/77a484cf4ad5
 		var formData = $('form[name="form1"]').serializeArray();
 		console.log(formData)
+
+		//清除setInterval
+		function clearSetInterval() {
+			if (timer != null) {
+				clearInterval(timer);
+				$("#checkCode").html("获取验证码");
+				$("#checkCode").prop("disabled", false);
+			}
+		}
+
+		//获取验证码倒计时
+		function countDownBtn(ele) {
+			var time = 4,
+				tmpTime = time,
+				that = $(ele),
+				$thatText = that.text();
+			timer = setInterval(function () {
+				tmpTime--;
+				if (tmpTime == 0) {
+					clearInterval(timer);
+					that.prop("disabled", false).text($thatText);
+				} else {
+					that.prop("disabled", true).html(tmpTime + " S");
+				}
+			}, 1000);
+		}
+
+		$('form[name="form1"]').on('click', '#countDown', function () {
+			countDownBtn($('#countDown'));
+		})
 	</script>
 </body>
 </html>
