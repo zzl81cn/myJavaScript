@@ -52,6 +52,36 @@
 			}
 		}
 
+		// 按钮倒计时变量
+		/*var count = 59;
+		var countdown;
+		var timingBtn = null;
+		var btnText = null;
+		var timing = false;
+
+		// 按钮倒计时方法
+		this.timingBegin = function (btn) {
+			timingBtn = btn;
+			btnText = $(btn).html();
+			countdown = setInterval(function () {
+				self.CountDown(btn);
+			}, 1000);
+		};
+		this.CountDown = function (timingBtn) {
+			$(timingBtn).attr("disabled", "disabled");
+			timing = true;
+			$(timingBtn).html(count + " S");
+			if (count == 0) {
+				count = 59;
+				$(timingBtn).html(btnText);
+				$(timingBtn).removeAttr("disabled");
+				clearInterval(countdown);
+				timing = false;
+			}
+			count--;
+		};*/
+
+
 		//获取验证码倒计时
 		function countDownBtn(ele) {
 			var time = 4,
