@@ -5,12 +5,31 @@
 	<title>HelloZepto</title>
 </head>
 <body>
-	<a id="tap" href="">tap</a>
+	<button id="tap" type="button">tap</button>
 	<script type="text/javascript" src="../zepto.js"></script>
 	<script type="text/javascript">
-		$('#tap').on('click', function (e) {
+		$('#tap').on('click', function (e, ele) {
 			e.preventDefault();
-			alert('ok!');
+			// alert('ok!');
+//			element = $(ele);
+			var time = 6,
+				$originText = $(this).text(),
+				tmpTime = time;
+			$(this).prop('disabled', true);
+
+			var cInter = setInterval(function () {
+				if (tmpTime <= 0) {
+					clearInterval(cInter);
+					$(this).prop('disabled', false).text($originText);
+				} else {
+					$(this).prop('disabled', true).text(tmpTime + ' S');
+				}
+				tmpTime--;
+			}.bind(this), 1000)
+		});
+		$('.filter-box').on('click', '.more > a', function () {
+			// $(this).parents().siblings('.filter-content').css("height","32px");
+			$(this).parents().siblings('.filter-content').toggleClass('all');
 		})
 	</script>
 </body>
