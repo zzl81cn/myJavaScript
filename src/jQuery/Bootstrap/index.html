@@ -90,7 +90,7 @@
 				$thatText = that.text();
 			timer = setInterval(function () {
 				tmpTime--;
-				if (tmpTime == 0) {
+				if (tmpTime <= 0) {
 					clearInterval(timer);
 					that.prop("disabled", false).text($thatText);
 				} else {
