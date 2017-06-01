@@ -112,6 +112,7 @@ anonymousTarget.addEventListener('click', function () {
 // }
 b = null;  //解除引用，等待垃圾回收
 
+
 //在循环中直接找到对应元素的索引
 /*window.onload = function () {
 	var aLi = document.getElementsByTagName('li');
@@ -122,7 +123,7 @@ b = null;  //解除引用，等待垃圾回收
 			alert(i);
 		}
 	}
-}*/
+};*/
 // 利用闭包重写
 window.onload = function () {
 	var aLi = document.getElementsByTagName('li');
@@ -134,6 +135,7 @@ window.onload = function () {
 		})(i)
 	}
 };
+
 
 // GC
 function closureUnGC() {
@@ -153,5 +155,38 @@ function clusureGC() {
 		alert(test);
 	}
 	oDivGC = null;
-};
+}
 clusureGC();
+
+
+// https://app.yinxiang.com/shard/s27/nl/6509927/1690bfd9-a44a-4f64-b6fe-395ef15dcec5?title=80%25%20%E5%BA%94%E8%81%98%E8%80%85%E9%83%BD%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%9A%84%20JS%20%E9%9D%A2%E8%AF%95%E9%A2%98
+function normalClosure() {
+	for(var i = 0; i < 5; i++) {
+		setTimeout(function () {
+			console.log(new Date, i);
+		}, 1000)
+	}
+	console.log(new Date, i);
+}
+// 利用 IIFE（Immediately Invoked Function Expression：声明即执行的函数表达式）来解决闭包造成的问题
+function toClosure() {
+	for(var i = 0; i < 5; i++){
+		(function (j) {
+			setTimeout(function () {
+				console.log(new Date, j)
+			})
+		})(i)
+	}
+}
+// 利用 JS 中基本类型（Primitive Type）的参数传递是按值传递（Pass by Value）的特征
+function priClosure() {
+	var output = function(i){
+		setTimeout(function(){
+			console.log(new Date, i);
+		}, 1000)
+	};
+	for(var i = 0; i<5; i++){
+		output(i);
+	}
+	console.log(new Date, i);
+}
