@@ -28,15 +28,15 @@
  * */
 
 //    http://www.w3school.com.cn/jsref/jsref_splice.asp
-var abc = [];
-abc[0] = "apple";
-abc[1] = "sumsung";
-console.log(abc);
+var arr = [];
+arr[0] = "apple";
+arr[1] = "sumsung";
+console.log(arr);
 // ["apple", "sumsung"];
 
 // splice()方法在指定第二个参数为0时，相当于在第一个索引位置插入一个新元素，这样就可以实现在任意位置插入新元素的操作，如果第二位参数与第一位相同，则是删除原数组指定索引元素
-abc.splice(1,0,"meizu");
-console.log(abc);
+arr.splice(1,0,"meizu");
+console.log(arr);
 // ["apple", "meizu", "sumsung"];
 
 arrPop = [1,2,3,4];
@@ -81,10 +81,10 @@ function sortNumber(a, b) {
 	// 第二小
 	// return b-a;
 }
-var arr = [1, 4, 2, 3, 5];
-arr.sort(sortNumber);
+var arrSortFind = [1, 4, 2, 3, 5];
+arrSortFind.sort(sortNumber);
 
-console.log(arr[arr.length - 2]);
+console.log(arrSortFind[arrSortFind.length - 2]);
 
 
 // 数组去重
