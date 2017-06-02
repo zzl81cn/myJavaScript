@@ -1,5 +1,6 @@
 /**
  * Created by zzl81cn on 2017/4/20.
+ * https://segmentfault.com/a/1190000000652891
  */
 /*function aaa() {
 	var a = 1;
@@ -93,7 +94,7 @@ function box() {
 		age++;
 		return age;
 	};
-};
+}
 /*var b = box();
 //即alert(box()())；
 alert(b());
@@ -110,10 +111,12 @@ anonymousTarget.addEventListener('click', function () {
 // 	age++;
 // 	return age;
 // }
-b = null;  //解除引用，等待垃圾回收
+//解除引用，等待垃圾回收
+b = null;
 
 
-//在循环中直接找到对应元素的索引
+// 在循环中直接找到对应元素的索引
+// https://app.yinxiang.com/shard/s27/nl/6509927/661c35c3-7558-4e21-9176-80a98873e431?title=(1)%E8%AF%A6%E8%A7%A3js%E9%97%AD%E5%8C%85%20-%20trigkit4%20-%20SegmentFault
 /*window.onload = function () {
 	var aLi = document.getElementsByTagName('li');
 	for (var i = 0; i < aLi.length; i++) {
@@ -190,3 +193,4 @@ function priClosure() {
 	}
 	console.log(new Date, i);
 }
+
