@@ -33,6 +33,8 @@ abc[0] = "apple";
 abc[1] = "sumsung";
 console.log(abc);
 // ["apple", "sumsung"];
+
+// splice()方法在指定第二个参数为0时，相当于在第一个索引位置插入一个新元素，这样就可以实现在任意位置插入新元素的操作，如果第二位参数与第一位相同，则是删除原数组指定索引元素
 abc.splice(1,0,"meizu");
 console.log(abc);
 // ["apple", "meizu", "sumsung"];
@@ -54,6 +56,87 @@ arrReverse.reverse();
 arrShift = [1,2,3];
 arrShift.shift();
 // 1
+
+// slice()方法是返回一个新数组，并不会影响原数组
+var abc = ["apple", "oneplus", "sumsung"];
+var newAbc = abc.slice(0,2);
+console.log(newAbc);
+// ["apple", "oneplus"]
+console.log(abc);
+// ["apple", "oneplus", "sumsung"]
+
+
+// 利用apply()方法查找数组最大值、最小值
+var def = [3,43,99];
+Math.max.apply(Math, def);
+// 99
+Math.min.apply(Math, def);
+// 3
+
+
+// 查找数组第二大值
+function sortNumber(a, b) {
+	// 第二大
+	return a - b;
+	// 第二小
+	// return b-a;
+}
+var arr = [1, 4, 2, 3, 5];
+arr.sort(sortNumber);
+
+console.log(arr[arr.length - 2]);
+
+
+// 数组去重
+// https://www.toobug.net/article/array_unique_in_javascript.html
+var arrUnique = [1,1,'1', 2, '2',6];
+// 双重for循环
+function uniqueDoubleFor(arr) {
+	var ret = [];
+	var len = arr.length;
+	var isRepeat;
+	for (var i = 0; i < len; i++) {
+		isRepeat = false;
+		for (var j = i + 1; j < len; j++) {
+			if (arr[i] === arr[j]) {
+				isRepeat = true;
+				break;
+			}
+		}
+		if (!isRepeat) {
+			ret.push(arr[i]);
+		}
+	}
+	return ret;
+}
+uniqueDoubleFor(arrUnique);
+// [1, "1", 2, "2", 6]
+
+
+// Optimize version 双重遍历还有一个优化版本，但是原理和复杂度几乎完全一样
+function uniqueOptimize(arr) {
+	var ret = [];
+	var len = arr.length;
+	for(var i=0; i<len; i++){
+		for(var j=i+1; j<len; j++){
+			if(arr[i] === arr[j]){
+				j = ++i;
+			}
+		}
+		ret.push(arr[i]);
+	}
+	return ret;
+}
+
+
+// ES6
+function unique(arr){
+	var set = new Set(arr);
+	return Array.from(set);
+}
+
+unique(arrUnique);
+// [1, "1", 2, "2", 6]
 
 
 // 降维数组操作
@@ -86,7 +169,7 @@ console.log(reduceDimFor(arr1));
 var arr2 = [[1,3,5],[2,4],[7]];
 function reduceDimConcat(arr) {
 	var arrResut = [];
-	for(var i = 0; i < arr.length;i++) {
+	for(var i = 0, tmpLength = arr.length; i < tmpLength; i++) {
 		arrResut = arrResut.concat(arr[i]);
 	}
 	return arrResut;
@@ -111,6 +194,7 @@ console.log(reduceDimConcat(arr2));
  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
 
  即apply方法会调用一个函数，apply方法的第一个参数会作为被调用函数的this值，apply方法的第二个参数（一个数组，或类数组的对象）会作为被调用对象的arguments值，也就是说该数组的各个元素将会依次成为被调用函数的各个参数；将该特性应用到代码中：
+ 另有bind()方法()：https://app.yinxiang.com/shard/s27/nl/6509927/7567f1c5-6167-4530-9b36-39d095f93d61?title=setTimeout%E6%94%B9%E5%8F%98this%E6%8C%87%E5%90%91(****************************************)%20-%20%E6%9C%80%E9%AA%9A%E7%9A%84%E5%B0%B1%E6%98%AF%E4%BD%A0%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD
  * */
 var arr4 = [1,2,[3,4],[1,[3,4],9],10];
 function reduceDim(arr) {
