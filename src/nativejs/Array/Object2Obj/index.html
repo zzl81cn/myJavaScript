@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Object2Obj</title>
+</head>
+<body>
+<script>
+	var data = [
+		{id: 33, pid: 2},
+		{id: 23, pid: 1},
+		{id: 5, pid: 2},
+		{id: 3, pid: 1},
+		{id: 6, pid: 2},
+		{id: 7, pid: 2},
+		{id: 8, pid: 2}
+	];
+	// 以上数据整理为
+	var dataResult = [
+		{id: 1,
+			list: [
+				{id: 3, pid: 1},
+				{id: 3, pid: 1},
+				{id: 3, pid: 1}
+			]},
+		{id: 2,
+			list: [
+				{id: 5, pid: 2},
+				{id: 6, pid: 2},
+				{id: 7, pid: 2},
+				{id: 8, pid: 2}
+			]}
+	];
+	function transData(d) {
+		var result = [];
+		for(var i = 0; i < d.length; i++){
+				result.push({
+					id: d[i].pid,
+					list: []
+				});
+			/*if(!result.i) {
+				result.i = d[i].pid;
+			}
+			result.push(d[i]);*/
+//			result = d[i].pid;
+		}
+		return result;
+	}
+	var data2 = transData(data);
+	console.log(data2);
+</script>
+</body>
+</html>
