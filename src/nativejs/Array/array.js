@@ -138,6 +138,16 @@ function unique(arr){
 unique(arrUnique);
 // [1, "1", 2, "2", 6]
 
+// map方法在调用callback函数时,会给它传递三个参数:当前正在遍历的元素, 元素索引, 原数组本身.
+// parseInt 利用map和parseInt方法将字符串元素数组内转换为数字元素数组
+// https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+function returnInt(element){
+	return parseInt(element,10);
+}
+
+["1", "2", "3"].map(returnInt);
+// (3) [1, 2, 3]
+
 
 // 降维数组操作
 // http://web.jobbole.com/85129/
