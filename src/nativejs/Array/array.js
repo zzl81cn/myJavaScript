@@ -168,7 +168,7 @@ function reduceDimFor(arr) {
 		}
 	}
 	return arrResult;
-};
+}
 console.log(reduceDimFor(arr1));
 // var arr2 = reduceDimFor(arr1);
 // console.log(arr2);
@@ -193,7 +193,7 @@ console.log(reduceDimConcat(arr2));
  *
  * 即如果concat方法的参数是一个元素，该元素会被直接插入到新数组中；如果参数是一个数组，该数组的各个元素将被插入到新数组中；将该特性应用到代码中：
  *
- * arr的每一个元素都是一个数组，作为concat方法的参数，数组中的每一个子元素又都会被独立插入进新数组。利用concat方法，我们将双重循环简化为了单重循环。
+ * arr2的每一个元素都是一个数组，作为concat方法的参数，数组中的每一个子元素又都会被独立插入进新数组。利用concat方法，我们将双重循环简化为了单重循环。
  * */
 
 
