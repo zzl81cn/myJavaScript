@@ -38,11 +38,17 @@
          * */
         document.getElementById('myList').addEventListener('click', function (e) {
             // var e = e || window.event;
-            var e = e?e:window.event;
-            switch (e.target.id) {
+	        var e = e ? e : window.event;
+            /*switch (e.target.id) {
                 case 'list1': alert('list1');break;
                 case 'list2': alert('list2');break;
                 case 'list3': alert('list3');break;
+            }*/
+            if(e.target && e.target.nodeName == 'LI') {
+            	var item = e.target;
+            	window.alert('NodeName is: ' + item.innerHTML);
+            } else {
+            	window.alert('Node not a li');
             }
         }, false)
     </script>
