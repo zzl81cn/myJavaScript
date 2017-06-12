@@ -42,7 +42,7 @@
 
         // Mock.mock( template )
         var data = Mock.mock({
-            'list|1-10': [{
+            'list|1-5': [{
                 'id|+1': 1
             }]
         });
@@ -51,19 +51,33 @@
 
         // Mock.mock(rurl, template)
         Mock.mock(/\.json/, {
-            'list|1-10': [{
-                'id|+1': 1,
+            'list|1-5': [{
+                'id|+1': 10,
                 'email': '@EMAIL',
                 'regexp3': /\d{5,10}/
             }]
         })
-        $.ajax({
+        /*$.ajax({
             url: 'hello.json',
-            dataType: 'json'
-        }).done(function(data, status, jqXHR) {
+            dataType: 'json',
+            type: 'get'
+        }).success(function(data, status, jqXHR) {
             $('<pre>').text(JSON.stringify(data, null, 4))
                     .appendTo('body')
-        })
+        })*/
+	    Mock.mock('/api/mock1', {
+	    	'array|1-5': [{
+	    		'id|+1': 1,
+			    'email': '@EMAIL'
+		    }]
+	    })
+	    $.ajax({
+		    url: '/api/mock1',
+		    dataType: 'json',
+		    type: 'get'
+	    }).success(function (data, status, jqXHR) {
+		    $('<pre>').text(JSON.stringify(data, null, 4)).appendTo('body');
+	    })
     })
 
 </script>
