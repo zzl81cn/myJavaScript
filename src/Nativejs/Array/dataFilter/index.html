@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = '123',
+        b = ['123','456'],
+        result = ['789'];
+    for(var i = 0;i<b.length; i++) {
+        if(a == b[i]) {
+            console.log('b is: ', b[i]);
+            result.push(b[i])
+            break;
+        } else {
+            console.log('Haven\'t same item.')
+        }
+    }
+</script>
+</body>
+</html>
