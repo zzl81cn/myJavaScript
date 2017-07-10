@@ -7,10 +7,10 @@
 <body>
 <script>
     var a = '123',
-        b = ['123','456'],
+        b = ['123', '456'],
         result = ['789'];
-    for(var i = 0;i<b.length; i++) {
-        if(a == b[i]) {
+    for (var i = 0; i < b.length; i++) {
+        if (a == b[i]) {
             console.log('b is: ', b[i]);
             result.push(b[i])
             break;
@@ -18,6 +18,118 @@
             console.log('Haven\'t same item.')
         }
     }
+    var realId = [
+            '4f81c27cb06c4098915fd29a074ed64d', '4f81c27cb06c4098915fd29a074ed64b'],
+        realData = [
+            {
+                "commodityId": "4f81c27cb06c4098915fd29a074ed64d",
+                "commodityCode": "CMD_SCR001_00040",
+                "commodityName": "测试0704",
+                "commodityDescription": null,
+                "commodityType": null,
+                "commodityStatus": "1",
+                "commodityPrice": 299,
+                "commodityImg": null,
+                "screenId": "8a3ab230383f4cd7843899cc3386959d",
+                "startDate": "2017-07-06",
+                "endDate": "2017-07-08",
+                "timeFrame": "1",
+                "startTime": "10:00",
+                "endTime": "11:00",
+                "shelfTime": "09:00",
+                "planNumber": 20,
+                "singleTime": 15,
+                "playTimes": 12,
+                "createdTime": null,
+                "createdBy": null,
+                "modifiedTime": null,
+                "modifiedBy": null,
+                "version": null,
+                "delflag": null,
+                "sales": "6",
+                "stock": "20",
+                "display": "0",
+                "stockStatus": "1",
+                "scheduleStatus": "0"
+            },
+            {
+                "commodityId": "4f81c27cb06c4098915fd29a074ed64c",
+                "commodityCode": "CMD_SCR001_00040",
+                "commodityName": "测试0703",
+                "commodityDescription": null,
+                "commodityType": null,
+                "commodityStatus": "1",
+                "commodityPrice": 299,
+                "commodityImg": null,
+                "screenId": "8a3ab230383f4cd7843899cc3386959c",
+                "startDate": "2017-07-06",
+                "endDate": "2017-07-08",
+                "timeFrame": "1",
+                "startTime": "10:00",
+                "endTime": "11:00",
+                "shelfTime": "09:00",
+                "planNumber": 20,
+                "singleTime": 15,
+                "playTimes": 12,
+                "createdTime": null,
+                "createdBy": null,
+                "modifiedTime": null,
+                "modifiedBy": null,
+                "version": null,
+                "delflag": null,
+                "sales": "6",
+                "stock": "20",
+                "display": "0",
+                "stockStatus": "1",
+                "scheduleStatus": "0"
+            },
+            {
+                "commodityId": "4f81c27cb06c4098915fd29a074ed64b",
+                "commodityCode": "CMD_SCR001_00040",
+                "commodityName": "测试0702",
+                "commodityDescription": null,
+                "commodityType": null,
+                "commodityStatus": "1",
+                "commodityPrice": 299,
+                "commodityImg": null,
+                "screenId": "8a3ab230383f4cd7843899cc3386959b",
+                "startDate": "2017-07-06",
+                "endDate": "2017-07-08",
+                "timeFrame": "1",
+                "startTime": "10:00",
+                "endTime": "11:00",
+                "shelfTime": "09:00",
+                "planNumber": 20,
+                "singleTime": 15,
+                "playTimes": 12,
+                "createdTime": null,
+                "createdBy": null,
+                "modifiedTime": null,
+                "modifiedBy": null,
+                "version": null,
+                "delflag": null,
+                "sales": "6",
+                "stock": "20",
+                "display": "0",
+                "stockStatus": "1",
+                "scheduleStatus": "0"
+            }
+        ],
+        resultData = [];
+    for (var i = 0; i < realId.length; i++) {
+        for (var j = 0; j < realData.length; j++) {
+            if (realId[i] == realData[j].commodityId) {
+                console.log('b is: ', realData[j], realData[j].commodityName);
+                resultData.push(realData[j])
+                console.log('ResultData is: ', resultData);
+//            break;
+            } else {
+                console.log('Haven\'t same item.')
+            }
+        }
+    }
+
+
 </script>
 </body>
 </html>
