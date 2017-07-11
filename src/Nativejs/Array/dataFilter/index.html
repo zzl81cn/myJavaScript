@@ -374,6 +374,33 @@
     console.log('tabDataContent[0][0] is: ', tabDataContent[0][0].benisonContent);
 
 
+    var exObj = {
+        "detailId": "",
+        "orderId": "",
+        "commodityId": "12345667",
+        "commodityCode": "code",
+        "commodityName": "商品名称",
+        "commodityDescription": "商品描述",
+        "commodityPrice": 299,
+        "playDate": "2017-06-30",
+        "timeStart": "9:30",
+        "timeEnd": "11:30",
+        "singleTime": 1,
+        "playTimes": "1",
+        "skuId": "1234567",
+        "skuCode": "",
+        "skuName": "",
+        "skuDescription": "",
+        "skuPrice": "",
+        "createdTime": "",
+        "createdBy": "",
+        "modifiedTime": "",
+        "modifiedBy": "",
+        "version": 1,
+        "delflag": "0",
+        "benisonContent": ""
+    };
+
     var tradeList = [
         {
             "commodityId": "4f81c27cb06c4098915fd29a074ed64d",
@@ -406,7 +433,7 @@
             "stockStatus": "1",
             "scheduleStatus": "0"
         }
-    ]
+    ];
     for(var i = 0; i < tradeList.length; i++) {
         console.log('TradeList ', tradeList[i])
         for(var key in tradeList[i]) {
@@ -414,8 +441,9 @@
         }
         delete tradeList[i].commodityType;
         console.log('TradeList ', tradeList[i])
-
     }
+    var targetObj = {};
+
 </script>
 </body>
 </html>
