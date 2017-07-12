@@ -383,7 +383,7 @@
                             "commodityDescription": null,
                             "commodityType": null,
                             "commodityStatus": "1",
-                            "commodityPrice": 299,
+                            "commodityPrice": 100,
                             "commodityImg": null,
                             "screenId": "8a3ab230383f4cd7843899cc3386959d",
                             "startDate": "2017-07-06",
@@ -401,7 +401,7 @@
                             "modifiedBy": null,
                             "version": null,
                             "delflag": null,
-                            "sales": "6",
+                            "sales": "7",
                             "stock": "20",
                             "display": "0",
                             "stockStatus": "1",
@@ -414,7 +414,7 @@
                             "commodityDescription": null,
                             "commodityType": null,
                             "commodityStatus": "1",
-                            "commodityPrice": 299,
+                            "commodityPrice": 100,
                             "commodityImg": null,
                             "screenId": "8a3ab230383f4cd7843899cc3386959d",
                             "startDate": "2017-07-06",
@@ -432,16 +432,16 @@
                             "modifiedBy": null,
                             "version": null,
                             "delflag": null,
-                            "sales": "6",
+                            "sales": "7",
                             "stock": "20",
                             "display": "0",
                             "stockStatus": "1",
                             "scheduleStatus": "0"
                         }
-                    ],
-        targetObj = [];
+                    ];
 
     function filterTradeList(obj) {
+        var targetObj = [];
         var targetExArr = ["detailId", "orderId", "commodityId","commodityCode", "commodityName", "commodityDescription", "commodityPrice", "playDate", "timeStart", "timeEnd", "singleTime", "playTimes", "skuId", "skuCode", "skuName", "skuDescription", "skuPrice", "createdTime", "createdBy", "modifiedTime", "modifiedBy", "version", "delflag", "benisonContent"];
 
         for(var i = 0; i < obj.length; i++) {
@@ -458,7 +458,27 @@
         }
         console.log('TargetObj result is: ', targetObj);
     }
-    filterTradeList(tradeList);
+    // filterTradeList(tradeList);
+    function filterTradeListPrice(obj) {
+        var targetObj = [];
+        var targetExArr = ["commodityId", "commodityCode", "commodityName", "commodityDescription", "commodityType", "commodityStatus", "commodityPrice", "commodityImg", "screenId", "startDate", "endDate", "timeFrame", "startTime", "endTime", "shelfTime", "planNumber", "singleTime", "playTimes", "createdTime", "createdBy", "modifiedTime", "modifiedBy", "version", "delflag", "sales", "stock", "display", "stockStatus", "scheduleStatus"];
+
+        for(var i = 0; i < obj.length; i++) {
+            console.log('TradeList ', obj[i]);
+
+            targetObj.push({});
+            /*for(var key in targetEx) {
+                console.log('key is: ', key);
+                targetObj[i][key] = (obj[i][key] || "");
+            }*/
+            targetExArr.forEach(function (item) {
+                targetObj[i][item] = (obj[i][item] || "");
+                targetObj[i].dprice = (Number.parseInt((obj[i].commodityPrice*obj[i].sales/10).toFixed(2)))
+            })
+        }
+        console.log('TargetObjPrice result is: ', targetObj);
+    }
+    filterTradeListPrice(tradeList);
 </script>
 </body>
 </html>
