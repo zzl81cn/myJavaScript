@@ -374,48 +374,91 @@
     console.log('tabDataContent[0][0] is: ', tabDataContent[0][0].benisonContent);
 
 
-    var tradeList = [
-        {
-            "commodityId": "4f81c27cb06c4098915fd29a074ed64d",
-            "commodityCode": "CMD_SCR001_00040",
-            "commodityName": "测试0704",
-            "commodityDescription": null,
-            "commodityType": null,
-            "commodityStatus": "1",
-            "commodityPrice": 299,
-            "commodityImg": null,
-            "screenId": "8a3ab230383f4cd7843899cc3386959d",
-            "startDate": "2017-07-06",
-            "endDate": "2017-07-08",
-            "timeFrame": "1",
-            "startTime": "10:00",
-            "endTime": "11:00",
-            "shelfTime": "09:00",
-            "planNumber": 20,
-            "singleTime": 15,
-            "playTimes": 12,
-            "createdTime": null,
-            "createdBy": null,
-            "modifiedTime": null,
-            "modifiedBy": null,
-            "version": null,
-            "delflag": null,
-            "sales": "6",
-            "stock": "20",
-            "display": "0",
-            "stockStatus": "1",
-            "scheduleStatus": "0"
-        }
-    ]
-    for(var i = 0; i < tradeList.length; i++) {
-        console.log('TradeList ', tradeList[i])
-        for(var key in tradeList[i]) {
-            console.log('key is: ', key)
-        }
-        delete tradeList[i].commodityType;
-        console.log('TradeList ', tradeList[i])
+    var targetExArr2 = ["detailId", "orderId", "commodityId","commodityCode", "commodityName", "commodityDescription", "commodityPrice", "playDate", "timeStart", "timeEnd", "singleTime", "playTimes", "skuId", "skuCode", "skuName", "skuDescription", "skuPrice", "createdTime", "createdBy", "modifiedTime", "modifiedBy", "version", "delflag", "benisonContent"],
+        tradeList = [
+                        {
+                            "commodityId": "4f81c27cb06c4098915fd29a074ed64d",
+                            "commodityCode": "CMD_SCR001_00040",
+                            "commodityName": "测试0704",
+                            "commodityDescription": null,
+                            "commodityType": null,
+                            "commodityStatus": "1",
+                            "commodityPrice": 299,
+                            "commodityImg": null,
+                            "screenId": "8a3ab230383f4cd7843899cc3386959d",
+                            "startDate": "2017-07-06",
+                            "endDate": "2017-07-08",
+                            "timeFrame": "1",
+                            "startTime": "10:00",
+                            "endTime": "11:00",
+                            "shelfTime": "09:00",
+                            "planNumber": 20,
+                            "singleTime": 15,
+                            "playTimes": 12,
+                            "createdTime": null,
+                            "createdBy": null,
+                            "modifiedTime": null,
+                            "modifiedBy": null,
+                            "version": null,
+                            "delflag": null,
+                            "sales": "6",
+                            "stock": "20",
+                            "display": "0",
+                            "stockStatus": "1",
+                            "scheduleStatus": "0"
+                        },
+                        {
+                            "commodityId": "4f81c27cb06c4098915fd29a074ed64d",
+                            "commodityCode": "CMD_SCR001_00040",
+                            "commodityName": "测试0001",
+                            "commodityDescription": null,
+                            "commodityType": null,
+                            "commodityStatus": "1",
+                            "commodityPrice": 299,
+                            "commodityImg": null,
+                            "screenId": "8a3ab230383f4cd7843899cc3386959d",
+                            "startDate": "2017-07-06",
+                            "endDate": "2017-07-08",
+                            "timeFrame": "1",
+                            "startTime": "10:00",
+                            "endTime": "11:00",
+                            "shelfTime": "09:00",
+                            "planNumber": 20,
+                            "singleTime": 15,
+                            "playTimes": 12,
+                            "createdTime": null,
+                            "createdBy": null,
+                            "modifiedTime": null,
+                            "modifiedBy": null,
+                            "version": null,
+                            "delflag": null,
+                            "sales": "6",
+                            "stock": "20",
+                            "display": "0",
+                            "stockStatus": "1",
+                            "scheduleStatus": "0"
+                        }
+                    ],
+        targetObj = [];
 
+    function filterTradeList(obj) {
+        var targetExArr = ["detailId", "orderId", "commodityId","commodityCode", "commodityName", "commodityDescription", "commodityPrice", "playDate", "timeStart", "timeEnd", "singleTime", "playTimes", "skuId", "skuCode", "skuName", "skuDescription", "skuPrice", "createdTime", "createdBy", "modifiedTime", "modifiedBy", "version", "delflag", "benisonContent"];
+
+        for(var i = 0; i < obj.length; i++) {
+            console.log('TradeList ', obj[i]);
+
+            targetObj.push({});
+            /*for(var key in targetEx) {
+                console.log('key is: ', key);
+                targetObj[i][key] = (obj[i][key] || "");
+            }*/
+            targetExArr.forEach(function (item) {
+                targetObj[i][item] = (obj[i][item] || "");
+            })
+        }
+        console.log('TargetObj result is: ', targetObj);
     }
+    filterTradeList(tradeList);
 </script>
 </body>
 </html>
