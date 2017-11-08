@@ -18,3 +18,6 @@
 ## js OOP 20170503
 
 ### jquery Validator
+
+## Build
+###  sass --watch .\style.scss:style.css
