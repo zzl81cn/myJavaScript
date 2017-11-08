@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column; }
+  .container header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 40px; }
+    .container header nav ul {
+      display: flex;
+      align-items: baseline;
+      list-style-type: none; }
+  .container .wrapper {
+    display: flex;
+    flex-direction: row; }
+    .container .wrapper .main {
+      flex: 3;
+      margin-right: 60px;
+      background: #f0f0f0; }
+    .container .wrapper .sidebar {
+      flex: 1;
+      background: #e0e0e0; }
+
+/*# sourceMappingURL=style.css.map */
