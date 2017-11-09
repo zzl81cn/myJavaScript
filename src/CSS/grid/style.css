@@ -1,0 +1,28 @@
+header {
+  grid-area: header;
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+  header nav {
+    justify-self: start; }
+  header ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style-type: none; }
+    header ul li {
+      padding-right: 20px; }
+  header button {
+    justify-self: end; }
+
+.container {
+  max-width: 900px;
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-areas: "header header" "sidebar main" "footer footer";
+  grid-gap: 50px; }
+
+/*# sourceMappingURL=style.css.map */
