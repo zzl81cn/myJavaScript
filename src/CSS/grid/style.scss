@@ -5,6 +5,7 @@ header {
   padding: 20px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background-color: #7fd8f6;
   nav {
     justify-self: start;
   }
@@ -12,7 +13,6 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    //padding-left: 0;
     list-style-type: none;
     li {
       padding-right: 20px;
@@ -34,4 +34,10 @@ header {
     "sidebar main"
     "footer footer";
   grid-gap: 50px;
+  .sidebar {
+    background-color: #DFD8E8;
+  }
+  .main {
+    background-color: #FECD4C;
+  }
 }
