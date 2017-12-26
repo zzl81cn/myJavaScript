@@ -12,6 +12,7 @@
     <script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
     <script src="https://a.alipayobjects.com/g/datavis/g2/2.3.13/index.js"></script>
     <script>
+      // G2 对数据源格式的要求，仅仅是 JSON 数组，数组的每个元素是一个标准 JSON 对象。
       var data = [
         { genre: 'Sports', sold: 275 },
         { genre: 'Strategy', sold: 115 },
@@ -19,7 +20,7 @@
         { genre: 'Shooter', sold: 350 },
         { genre: 'Slow', sold: 150 },
         { genre: 'Other', sold: 150 },
-      ]; // G2 对数据源格式的要求，仅仅是 JSON 数组，数组的每个元素是一个标准 JSON 对象。
+      ];
       // Step 1: 创建 Chart 对象
       var chart = new G2.Chart({
         id: 'g2', // 指定图表容器 ID
