@@ -6,16 +6,16 @@
   </head>
   <body>
     <div id="list"></div>
-    <script src="../jquery.js"></script>
+    <script src="../../jquery.js"></script>
     <script>
       $(function(){
         var $el  = $('#list');
-        console.log('$el is: ', $el);
+        // console.log('$el is: ', $el);
         
         // 模拟数据URL
         var reqURL = {
           demoJSON: {
-            url: 'data.json',
+            url: '../data.json',
             methodType: 'get'
           }
         };
@@ -40,7 +40,6 @@
               var tmpDataLen = tmpData.length;
               $(selector).html(function() {
                 var htmlStr = '';
-                // htmlStr += '<p class="default paragraphy">';
                 for(var i = 0; i < tmpDataLen; i ++) {
                   htmlStr += '<p class="default paragraphy">' + tmpData[i].name + '</p>'
                 }
@@ -48,7 +47,7 @@
               })
             }
           },
-          // 调用数据处理
+          // 调用数据处理，增加这一步，主要是方便复用，可以单独指定同类内容的选择器
           proccessDataListDOM: function(data) {
             var $selector = '#list';
             index.proccessDataList(data, $selector);
@@ -58,6 +57,7 @@
             index.normalReq(reqURL.demoJSON.url, reqURL.demoJSON.methodType, index.proccessDataListDOM)
           }
         }
+        // Call
         index.getProcessDataList();
       })
     </script>
