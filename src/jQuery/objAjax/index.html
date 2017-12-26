@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>obj ajax</title>
+  </head>
+  <body>
+    <div id="list"></div>
+    <script src="../jquery.js"></script>
+    <script>
+      $(function(){
+        var $el  = $('#list');
+        console.log('$el is: ', $el);
+        
+        // 模拟数据URL
+        var reqURL = {
+          demoJSON: {
+            url: 'data.json',
+            methodType: 'get'
+          }
+        };
+        var index = {
+          // 封装Ajax
+          normalReq: function(url, methodType, success) {
+            $.ajax({
+              url: url,
+              type: methodType,
+              success: function(data) {
+                success(data)
+              },
+              error: function(status) {
+                errror(status)
+              }
+            })
+          },
+          // 处理DOM
+          proccessDataList: function(data, selector) {
+            if(data.data.length > 0) {
+              var tmpData = data.data;
+              var tmpDataLen = tmpData.length;
+              $(selector).html(function() {
+                var htmlStr = '';
+                // htmlStr += '<p class="default paragraphy">';
+                for(var i = 0; i < tmpDataLen; i ++) {
+                  htmlStr += '<p class="default paragraphy">' + tmpData[i].name + '</p>'
+                }
+                return htmlStr;
+              })
+            }
+          },
+          // 调用数据处理
+          proccessDataListDOM: function(data) {
+            var $selector = '#list';
+            index.proccessDataList(data, $selector);
+          },
+          // 执行
+          getProcessDataList: function() {
+            index.normalReq(reqURL.demoJSON.url, reqURL.demoJSON.methodType, index.proccessDataListDOM)
+          }
+        }
+        index.getProcessDataList();
+      })
+    </script>
+  </body>
+</html>
