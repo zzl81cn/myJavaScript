@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello d3</title>
+  <style>
+    body{
+      font-family: "helvetica";
+    }
+    .rect {
+      min-height: 30px;
+      min-width: 10px;
+      background-color: steelblue;
+      margin-bottom: 2px;
+      font-size: 11px;
+      color: #fff;
+      text-align: right;
+      padding-right: 2px;
+    }
+
+  </style>
+</head>
+<body>
+<p>https://www.jianshu.com/p/9a8284269cae</p>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+  var data = [12, 25, 13, 23, 24, 55, 25, 30];
+
+  var dataRange = d3.scaleLinear() //创建一个值域的线性比例尺
+      .domain([0, 100])
+      .range([0, 300]);
+
+  var colorRange = d3.scaleLinear() //创建一个颜色的线性比例尺
+      .domain([0, 100])
+      .range(["#29B6F6", "#01579B"]);
+
+  function render(data) {
+    // Enter  当前选择中存在但是当前DOM元素中还不存在的每个数据元素的占位符节点。
+    d3.select("body").selectAll("div.rect")
+        .data(data) //绑定数据与图形
+        .enter() //进入状态（增加图形匹配多余的数据）
+        .append("div") //生成dom节点，此时已有可显示dom
+        .attr("class", "rect") //添加类名
+        .append("span"); //添加span
+
+    // Update
+    d3.select("body").selectAll("div.rect")
+        .data(data) //绑定数据到dom 节点
+        .style("width", function (d) {
+          return dataRange(d) + "px"   //通过数据生成相应样式
+        })
+        .style("background-color", function (d) {
+          return colorRange(d);
+        })
+        .select("span")  // 选取当前div下的span
+        .text(function (d) {
+          return d; //调用函数，返回与该图形绑定的数据d
+        });
+
+    // Exit  找出在当前选择存在的DOM元素中没有新的数据元素
+    d3.select("body").selectAll("div.rect")
+        .data(data)
+        .exit()
+        .remove();//  （删除没有数据的多余的图形）
+
+  }
+  render(data); //第一次执行
+
+  d3.interval(function () {
+    data.shift(); //删除数组的第一个数据,并添加一个数据
+    data.push(Math.round(Math.random() * 100));
+    render(data);
+  }, 5000); //1s执行一次
+
+</script>
+</body>
+</html>
