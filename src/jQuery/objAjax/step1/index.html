@@ -9,22 +9,22 @@
     <script src="../../jquery.js"></script>
     <script>
       $(function(){
-        var $el  = $('#list');
+        // var $el  = $('#list');
         // console.log('$el is: ', $el);
         
         // 模拟数据URL
         var reqURL = {
           demoJSON: {
             url: '../data.json',
-            methodType: 'get'
+            type: 'get'
           }
         };
         var index = {
           // 封装Ajax
-          normalReq: function(url, methodType, success) {
+          normalReq: function(url, type, success) {
             $.ajax({
               url: url,
-              type: methodType,
+              type: type,
               success: function(data) {
                 success(data)
               },
@@ -54,7 +54,7 @@
           },
           // 执行
           getProcessDataList: function() {
-            index.normalReq(reqURL.demoJSON.url, reqURL.demoJSON.methodType, index.proccessDataListDOM)
+            index.normalReq(reqURL.demoJSON.url, reqURL.demoJSON.type, index.proccessDataListDOM)
           }
         }
         // Call
