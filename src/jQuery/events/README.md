@@ -61,14 +61,14 @@ $(function(){
 ### 重复绑定
 ``` javascript
 $(function(){
-		$('.del').click(deleteTr);
-		$('.add').click(function() {
-			$("<tr><td>103</td><td>68</td><td><button class='del'>删除</button></td></tr>").find(".del").click(deleteTr).end().appendTo('tbody');
-		});
-		function deleteTr(){
-			$(this).parents("tr").remove();
-		}
+  $('.del').click(deleteTr);
+  $('.add').click(function() {
+    $("<tr><td>103</td><td>68</td><td><button class='del'>删除</button></td></tr>").find(".del").click(deleteTr).end().appendTo('tbody');
   });
+  function deleteTr(){
+    $(this).parents("tr").remove();
+  }
+});
 ```
 
 这里有一点需要注意就是onclick='deleteTr(this)'中的deleteTr()函数不能定义在$(function(){});中，如果定义在$(function(){});中，在解析HTML时，无法调用，因此需要定义在外面。
