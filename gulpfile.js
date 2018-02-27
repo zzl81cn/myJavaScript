@@ -12,8 +12,8 @@ var gulp = require('gulp'),
 //    mincss = require('gulp-minify-css'),
     notify = require('gulp-notify'),
     plumber = require('gulp-plumber'),
-//    sass = require('gulp-sass'),
-    sass = require('gulp-ruby-sass'),
+   sass = require('gulp-sass'),
+    // sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer'),
 //    jsmin = require('gulp-uglify'),
     browserSync = require('browser-sync').create();
@@ -25,30 +25,30 @@ var	src = './src',
 	proxyURL = 'http://rap.taobao.org/',
 	dest = './dist';
 
- //gulp.task('sassTask', function(){
- //	return gulp.src('./src/styles/*.scss')
- //			.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
- //			// compressed,expanded
- //			//.pipe(sass({outputStyle:'expanded'}))
- //			.pipe(autoprefixer({
- //						browsers: ['last 2 versions','Firefox <= 20'],
- //						cascade: false
- //					}))
- //			.pipe(gulp.dest('./src/styles'))
- //			.pipe(browserSync.stream());
- //});
+ gulp.task('sassTask', function(){
+ 	return gulp.src('./src/**/*.scss')
+ 			.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+ 			// compressed,expanded
+ 			//.pipe(sass({outputStyle:'expanded'}))
+ 			.pipe(autoprefixer({
+ 						browsers: ['last 2 versions','Firefox <= 20'],
+ 						cascade: false
+ 					}))
+ 			.pipe(gulp.dest('./src/styles'))
+ 			.pipe(browserSync.stream());
+ });
 
-gulp.task('sassTask', function(){
-    return sass('./src/**/*.scss')
-        .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-        .on('error', sass.logError)
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions','Firefox <= 20'],
-            cascade: false
-        }))
-        .pipe(gulp.dest('./src/styles'))
-        .pipe(browserSync.stream());
-});
+// gulp.task('sassTask', function(){
+//     return sass('./src/**/*.scss')
+//         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+//         .on('error', sass.logError)
+//         .pipe(autoprefixer({
+//             browsers: ['last 2 versions','Firefox <= 20'],
+//             cascade: false
+//         }))
+//         .pipe(gulp.dest('./src/styles'))
+//         .pipe(browserSync.stream());
+// });
 
 /*gulp.task('lessTask', function(){
    // multiple files change to array type (['','',...])
