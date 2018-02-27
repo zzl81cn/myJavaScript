@@ -21,17 +21,17 @@
   "homepage": "https://github.com/zzl81cn/myJavaScript#readme",
   "devDependencies": {
     "bootstrap": "^3.3.7",
-    "browser-sync": "^2.14.0",
+    "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.1.0",
+    "gulp-plumber": "^1.2.0",
     "gulp-ruby-sass": "^2.1.0",
-    "gulp-uglify": "^2.0.0",
-    "requirejs": "^2.2.0"
+    "gulp-uglify": "^2.1.2",
+    "requirejs": "^2.3.5"
   },
   "dependencies": {
-    "jquery": "^3.1.0",
+    "jquery": "^3.3.1",
     "seajs": "^3.0.2",
     "zepto": "^1.2.0"
   }
