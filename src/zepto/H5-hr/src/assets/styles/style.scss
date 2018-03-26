@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+@import "components/variables";
+@import "components/normalize";
+@import "components/init";
+
+
+body,
+#top {
+  *zoom: 1;
+}
+
+/*解决ie6footer居底和返回顶部居底*/
+#wrapperHome {
+  background: #0f3c69;
+  border: 1px solid transparent;
+  padding: .3rem;
+}
+
+#wrapperHome,
+.top {
+  width: 100%;
+  height: 100%;
+}
+#joinBtn {
+  bottom: 13%;
+  position: absolute;
+  left: 50%;
+  margin-left: -100px;
+  color: $body-bg;
+}
+
+// second screen
+.second-section {
+  width: 100%;
+  color: $text-color;
+}
+
+.second-screen #wrapperHome {
+  display: none;
+}
+
+.top-footer {
+  z-index: 10;
+  left: 5%;
+  bottom: 10px;
+  color: #fff;
+  position: absolute;
+  a {
+    color: #fff;
+  }
+}
+
+.screenBg {
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.top .top-wrap {
+  width: 100%;
+  height: 240px;
+  left: 50%;
+  // margin-left: -510px;
+  // top: 50%;
+  // margin-top: -270px;
+}
+
+.top .logoBig {
+  display: block;
+}
+
+.login-register {
+  right: 10%;
+  top: 20px;
+  color: #fff;
+  z-index: 9999;
+}
+
+.login-register a {
+  color: #fff;
+  margin: 0 5px;
+}
+
+.main-left {
+  width: 100%;
+  z-index: 10;
+}
+
+.main-left .ad img {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  width: 550px;
+  height: 330px;
+}
+
+/* graphic */
+ol {
+  padding-left: 80px;
+}
+
+.show-box {
+  border: 1px solid transparent;
+}
+#wrapperJobs {
+  position: relative;
+  background: #fff9cd;
+}

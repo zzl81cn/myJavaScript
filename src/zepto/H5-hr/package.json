@@ -1,0 +1,32 @@
+{
+  "name": "of-hr",
+  "version": "1.0.0",
+  "description": "H5 Animation",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-if": "^2.0.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^3.2.0",
+    "gulp-uglify": "^1.5.1",
+    "run-sequence": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.coding.net/zzl81cn/H5.git"
+  },
+  "keywords": [
+    "H5",
+    "Animation"
+  ],
+  "author": "zzl81cn",
+  "license": "MIT"
+}

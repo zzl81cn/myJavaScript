@@ -1,0 +1,26 @@
+/* init */
+
+/* * {
+  touch-action: none; //清除系统默认的手势事件
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  background: $body-bg;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
