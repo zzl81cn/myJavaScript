@@ -12,17 +12,17 @@
 <body>
 	<h1 id="hello" class="invisible">xxx</h1>
 
-	<script type="text/javascript" data-main="scripts/main.js" src="libs/require.js"></script>
-
-	<!--<script type="text/javascript" src="scripts/index.js"></script>-->
+	<!-- <script type="text/javascript" data-main="scripts/main.js" src="libs/require.js"></script> -->
+	<script type="text/javascript" src="libs/require.js"></script>
+	<script type="text/javascript" src="scripts/index.js"></script>
 	<script type="text/javascript">
-		/*require.config({
+		require.config({
 //			baseUrl: 'libs',
 			paths: {
 				'jquery': 'libs/jquery-2.2.4/dist/jquery',
 				'hello': 'scripts/hello'
 			}
-		});*/
+		});
 
 		// Rebuild to hello.js
 		/*require(['jquery'], function ($) {

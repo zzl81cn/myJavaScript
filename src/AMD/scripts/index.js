@@ -3,5 +3,5 @@
  * http://javascript.ruanyifeng.com/tool/requirejs.html
  */
 require(['hello'], function (hello) {
-	hello.replace('#hello', 'asdfadf');
+	hello.replace('#hello', 'requreiJS, this is helloworld!');
 });
