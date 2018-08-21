@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		.invisible {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="hello" class="invisible">xxx</h1>
+
+    <!-- 测试引入单独的网络CDN版jquery，避免路径问题 -->
+    <!--<script type="text/javascript" data-main="scripts/first-hello.js" src="libs/require.js"></script>-->
+    <script type="text/javascript" data-main="scripts/main.js" src="libs/require.js"></script>
+	<!--<script type="text/javascript" src="./libs/require.js"></script>-->
+	<!--<script type="text/javascript" src="scripts/index.js"></script>-->
+	<script type="text/javascript">
+		/*require.config({
+			baseUrl: './',
+			paths: {
+				'jquery': 'libs/jquery',
+				// 'hello': 'scripts/hello'
+			}
+		});*/
+
+		// Rebuild to hello.js
+		/*require(['jquery'], function ($) {
+			// start code
+            alert($().jquery);
+            $('body').html(function () {
+                return '123'
+            })
+			$('#hello').html(function () {
+				return 'Hello RequireJS';
+			}).removeClass('invisible');
+		});*/
+
+		// 独立的hello.js就可以require进来了
+//		var selector1 = '#hello';
+		/*require(['hello'], function (hello) {
+			hello.replace('#hello');
+		});*/
+
+		// Url
+		/*var reqUrl = {
+			datasource: {
+				url: ' /faverGoods?type=1&catId=101',
+				methodType: 'get'
+			}
+		};*/
+
+		// 先注掉，还得看看require定义模块
+		/*require(['getMallData'], function (getMallData) {
+			getMallData.getData(reqUrl.datasource.url, reqUrl.datasource.methodType);
+		});*/
+
+
+		//		一般的jQuery 插件格式：
+		/*(function ($) {
+			$.fn.myPlugin = function () {
+				//你自己的插件代码
+			};
+		})(jQuery);*/
+
+//		稍微修改一下就可以使用Require.js加载一个jQuery插件：
+		/*;(function (factory) {
+			if (typeof define === "function" && define.amd) {
+				// AMD模式
+				define([ "jquery" ], factory);
+			} else {
+				// 全局模式
+				factory(jQuery);
+			}
+		}(function ($) {
+			$.fn.jqueryPlugin = function () {
+				//插件代码
+			};
+		}));*/
+	</script>
+</body>
+</html>
