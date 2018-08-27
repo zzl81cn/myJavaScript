@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      #modal{
+        border:1px solid #000;
+        width:200px;
+        text-align:center;
+        display:none;
+      }
+    </style>
+    <script type="text/javascript">
+      window.onload=function(){
+        function Modal (title, content, control, titlecolor, titlesize) {
+          this.title = title;
+          this.content = content;
+          this.control = control;
+          this.titlecolor = titlecolor;
+          this.titlesize = titlesize;
+        }
+        Modal.prototype.open = function (){
+          document.getElementById('modal-header').innerHTML=this.title;
+          document.getElementById('modal-content').innerHTML=this.content;
+          document.getElementById('control').innerHTML=this.control;
+          document.getElementById('modal-header').style.color=this.titlecolor;
+          document.getElementById('modal-header').style.fontSize=this.titlesize;
+          document.getElementById('modal').style.display='block';
+        }
+        Modal.prototype.cancel = function (){
+          document.getElementById('modal').style.display='none';
+        }
+        var modal = new Modal('标题', '内容', '取消', '#f00', '20px')
+  
+        document.getElementById('show').onclick=function(){
+          modal.open();
+        }
+        document.getElementById('control').onclick=function(){
+          modal.cancel();
+        }
+     }
+    </script>
+  </head>
+  <body>
+    <button id="show">显示</button>
+    <div id="modal">
+      <div id="modal-header"></div>
+      <div id="modal-content"></div>
+      <button id="control"></button>
+    </div>
+  </body>
+</html>
