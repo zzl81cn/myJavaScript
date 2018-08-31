@@ -1,7 +1,7 @@
 /**
  * Created by zzl81cn_pre on 2017/1/24.
  */
-define('test',function () {
+define('test', function () {
 	return {
 		calcTwoMin: function () {
 			var a = document.getElementById('A'),
