@@ -19,7 +19,6 @@
 ### Backbone.js + RequireJS • TodoMVC(optimized): \AMD\todo-mvc\index.html
 
 
-### RequireJS
 
 ### mutiple select
 
@@ -27,7 +26,6 @@
 
 ### water fall layout
 
-### js eval()
 
 ## js OOP 20170503
 
