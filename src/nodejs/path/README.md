@@ -84,14 +84,14 @@ fs.readFile('../lib/common.js', function (err, data) {
 在 require() 中使用是跟 __dirname 的效果相同，不会因为启动脚本的目录不一样而改变，在其他情况下跟 process.cwd() 效果相同，是相对于启动脚本所在目录的路径。
 
 # 三、总结：
-只有在 require() 时才使用相对路径(./, ../) 的写法，其他地方一律使用绝对路径，如下：
+<strong>只有在 require() 时才使用相对路径(./, ../) 的写法，其他地方一律使用绝对路径，如下：</strong>
 
 // 当前目录下
 path.dirname(__filename) + '/test.js';
 // 相邻目录下
 path.resolve(__dirname, '../lib/common.js');
 四、参考链接：
-What is the difference between __dirname and ./ in node.js
+[What is the difference between __dirname and ./ in node.js](http://stackoverflow.com/questions/8131344/what-is-the-difference-between-dirname-and-in-node-js)
 nodejs API
 以上😄。
 
