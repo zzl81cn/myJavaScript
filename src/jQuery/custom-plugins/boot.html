@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>boot custom-plugins</title>
+  </head>
+  <body>
+    <h3>test</h3>
+    <script src="../jquery.js"></script>
+    <script type="text/javascript">
+      (function($) {
+        $.extend({
+          min: function(a, b) {return a < b ? a : b}
+        })
+        let resultMin = $.min(2, 3);
+        console.log('resultMin', resultMin);
+      })(jQuery)
+    </script>
+  </body>
+</html>
