@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="@my_programmer">
+  <title>webkitAnimationEnd</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <style type="text/css">
+    #div {
+      width: 200px;
+      height: 200px;
+      background: #f60;
+      margin: 100px auto;
+      transition: all ease 1s;
+    }
+
+    .change {
+      animation: transform 1s 2 ease;
+    }
+
+    /* @-webkit-keyframes transform { */
+    @keyframes transform {
+      0% {
+        -webkit-transform: scale(1)
+      }
+
+      30% {
+        -webkit-transform: scale(2)
+      }
+
+      60% {
+        -webkit-transform: scale(0.5)
+      }
+
+      100% {
+        -webkit-transform: scale(1)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- doc link http://www.cnblogs.com/duanhuajian/archive/2013/01/29/2881973.html -->
+  <!-- 
+       用css3的animation完成一个动画，当只有这个动画完成时才执行令一个事件，比如让动画保持在终止的状态或其他一些事件。我们该怎么办呢。
+　　第一种方法：
+　　　　用计时器，设定一个和动画时长一样的time，过time事件去执行这个函数。
+　　　　setTimeout(function(){ },time);
+
+　　第二种方法：
+　　　　当-webkit-animation动画结束时有一个webkitAnimationEnd事件，只要监听这个事件就可以了。
+    摘要：
+    1.-webkit-animation动画其实有三个事件：　　　　　　
+
+　　　　　　开始事件 webkitAnimationStart
+　　　　　　结束事件	webkitAnimationEnd
+　　　　　　重复运动事件 webkitAnimationIteration
+
+　　　　你可以在上个例子中测试一下这两个事件
+  -->
+  
+  <div id="div"></div>
+  <script type="text/javascript">
+    var tt = document.querySelector('#div');
+    // 监听点击事件
+    tt.addEventListener("click", function () {
+      this.className = 'change';
+    }, false);
+    // 监听css3动画结束事件
+    tt.addEventListener("webkitAnimationEnd", function () { //动画结束时事件 
+      this.className = this.className.replace('change', ' ');
+      console.log(2);
+    }, false);
+  </script>
+  <!-- 
+    摘要：
+    1.-webkit-animation动画其实有三个事件：　　　　　　
+
+　　　　　　开始事件 webkitAnimationStart
+　　　　　　结束事件	webkitAnimationEnd
+　　　　　　重复运动事件 webkitAnimationIteration
+
+　　　　你可以在上个例子中测试一下这两个事件：
+    tt.addEventListener("webkitAnimationStart", function(){ //动画开始时事件
+    　　console.log(1);　　//动画开始时，控制台输出1
+
+    }, false);
+    tt.addEventListener("webkitAnimationIteration", function(){	//动画重复运动时的事件
+    　　console.log(3);　　//第一遍动作完成时，控制台输出3
+    }, false);
+    2、css3的过渡属性transition，在动画结束时，也存在结束的事件：webkitTransitionEnd;
+　　　　注意：transition,也仅仅有这一个事件。
+  -->
+  <script>
+    const tt = document.querySelector('#div');
+    
+  </script>
+</body>
+</html>
