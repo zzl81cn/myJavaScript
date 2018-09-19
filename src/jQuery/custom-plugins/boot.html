@@ -12,14 +12,21 @@
         <input type="checkbox">
       </label>
     </form>
+    <h3><a id="googleLink" href="http://www.google.com">google link</a></h3>
+    <h3><a id="teselaLink" class="link" href="http://www.tesela.com">tesela link</a></h3>
+    <h3><a id="spacexLink" class="link" href="http://www.spacex.com">spacex link</a></h3>
+
     <script src="../jquery.js"></script>
     <script type="text/javascript">
-      // 开始定义插件
+      // 开始定义插件 - 作用域
       (function($) {
+        // 1.开发一个jquery静态方法
         $.extend({
           min: function(a, b) {return a < b ? a : b},
           /* xx: function(){} */
-        })
+        });
+
+        // plugins start
         $.fn.extend({
           /* 勾选checkbox方法 */
           check: function() {
@@ -34,10 +41,37 @@
               this.checked = false;
               console.log('uncheck is called.');
             })
-          }
-        })
+          },
+        });
+        // Test
         let resultMin = $.min(2, 3);
         console.log('resultMin', resultMin);
+
+        // 开发一个jquery实例方法
+        // 3a.defaults
+        var defaults = {
+          prevId: 'prevBtn',
+          prevText: 'Previous',
+          nextId: 'nextBtn',
+          nextText: 'Next',
+          generClass: '.link'
+        };
+        // 6a在插件里定义方法（类似私有方法）
+        var showLink = function(obj) {
+          $(obj).append(function() {return "(" + $(obj).attr("href") + ")"});
+        };
+        // 2.插件扩展方法名称
+        $.fn.easySlider = function(option) {
+          // 3b表示 options 去覆盖了defaults的值，并把值赋给了options。
+          var options = $.extend(defaults, option);
+          // 4.支持jquery选择器
+          // 5. 增加return支持链式调用
+          return this.each(function() {
+            // 6b 在插件里提供方法的对外调用,现在可以直接通过“$('selector').easySlider()”调用
+            showLink(this);
+          });
+
+        }
       })(jQuery)
 
       // 测试代码，先执行勾选checkbox方法，3秒后执行取消勾选
