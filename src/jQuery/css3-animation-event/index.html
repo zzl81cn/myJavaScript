@@ -9,13 +9,12 @@
   <meta name="format-detection" content="telephone=no" />
   <style type="text/css">
     #div {
-      width: 200px;
-      height: 200px;
-      background: #f60;
       margin: 100px auto;
+      width: 50px;
+      height: 50px;
+      background: rgb(180, 180, 180);
       transition: all ease 1s;
     }
-
     .change {
       animation: transform 1s 2 ease;
     }
@@ -25,15 +24,12 @@
       0% {
         -webkit-transform: scale(1)
       }
-
       30% {
-        -webkit-transform: scale(2)
+        -webkit-transform: scale(1.5)
       }
-
       60% {
         -webkit-transform: scale(0.5)
       }
-
       100% {
         -webkit-transform: scale(1)
       }
@@ -52,7 +48,7 @@
 　　第二种方法：
 　　　　当-webkit-animation动画结束时有一个webkitAnimationEnd事件，只要监听这个事件就可以了。
     摘要：
-    1.-webkit-animation动画其实有三个事件：　　　　　　
+    1.-webkit-animation动画其实有三个事件：
 
 　　　　　　开始事件 webkitAnimationStart
 　　　　　　结束事件	webkitAnimationEnd
@@ -76,7 +72,7 @@
   </script>
   <!-- 
     摘要：
-    1.-webkit-animation动画其实有三个事件：　　　　　　
+    1.-webkit-animation动画其实有三个事件：
 
 　　　　　　开始事件 webkitAnimationStart
 　　　　　　结束事件	webkitAnimationEnd
@@ -94,8 +90,13 @@
 　　　　注意：transition,也仅仅有这一个事件。
   -->
   <script>
-    const tt = document.querySelector('#div');
-    
+    // tt = document.querySelector('#div');
+    tt.addEventListener("webkitAnimationStart", function() {
+      console.log('1')
+    }, false);
+    tt.addEventListener("webkitAnimationIteration", function() {
+      console.log(3);
+    }, false);
   </script>
 </body>
 </html>
