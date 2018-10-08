@@ -30,6 +30,8 @@
         $.fn.extend({
           /* 勾选checkbox方法 */
           check: function() {
+            // 支持JQuery选择器
+            // 支持链式调用
             return this.each(function(){
               this.checked = true;
               console.log('check is called.');
