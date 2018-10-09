@@ -6,6 +6,7 @@
   </head>
   <body>
     <!-- blog doc http://www.cnblogs.com/xcj26/p/3345556.html -->
+    <!-- https://blog.csdn.net/GuLu_GuLu_jp/article/details/79770849 提到(function($){})(jquery) 的解释 -->
     <h3>test</h3>
     <form action="">
       <label for="checkCheckbox"> xx
@@ -19,6 +20,10 @@
     <script src="../jquery.js"></script>
     <script type="text/javascript">
       // 开始定义插件 - 作用域
+      // $ 是形参, jQuery 是传入给函数的实参
+      // 在自实现 jQuery 插件时，一般都使用(function($){})(jQuery) 代码来存放插件代码，相当于执行了var fn = function($){}; fn(jQuery)。这种写法最大的好处在于形成了闭包，从而使得在匿名函数内部定义的函数、变量只有在匿名函数内有效，形成了私有变量/函数的概念。
+      // Note：这实际是 JS 匿名函数的写法，(function(arg){ })(param)
+
       (function($) {
         // 1.开发一个jquery静态方法
         $.extend({
@@ -48,6 +53,7 @@
         // Test
         let resultMin = $.min(2, 3);
         console.log('resultMin', resultMin);
+
 
         // 开发一个jquery实例方法
         // 3a.defaults
