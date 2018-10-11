@@ -1,0 +1,30 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tab {
+  width: 600px;
+  height: 300px;
+  border: 1px solid #ccc;
+}
+.tab .tab-header {
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 1px solid #ccc;
+}
+.tab .tab-header li {
+  float: left;
+  width: 200px;
+  text-align: center;
+}
+.tab .tab-header li.active {
+  background: #ccc;
+}
+.tab .tab-content > div {
+  display: none;
+}
+.tab .tab-content > div.active {
+  display: block;
+}

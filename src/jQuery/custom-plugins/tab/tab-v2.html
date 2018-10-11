@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0; 
+        padding: 0;
+        list-style: none;
+    }
+    #tab {
+        width: 600px;
+        height: 300px;
+        border: 1px solid #ccc;
+    }
+    .tab-header {
+        height: 50px;
+        line-height: 50px;
+        border-bottom: 1px solid #ccc;
+    }
+    .tab-header li {
+        float: left;
+        width: 200px;
+        text-align: center;;
+    }
+    .tab-header li.active{
+        background: #ccc;
+    }
+    .tab-content > div{
+        display: none;
+    }
+    .tab-content .active {
+      display: block;
+    }
+    </style>
+</head>
+<body>
+    <h3>tab v2</h3>
+    <div id="tab">
+      <div class="tab-header">
+        <ul>
+            <li class="active">选项卡一</li>
+            <li>选项卡二</li>
+            <li>选项卡三</li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div class="active">我是第一个内容</div>
+        <div>我是第二个内容</div>
+        <div>我是第三个内容</div>
+      </div>
+    </div>
+    <script src="../../jquery.js"></script>
+    <script>
+    $('#tab li').on('mouseover', function (){
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+
+        $('.tab-content div').removeClass('active');
+        $('.tab-content div').eq($(this).index()).addClass('active');
+    })
+    </script>
+</body>
+</html>

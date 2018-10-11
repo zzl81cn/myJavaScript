@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <link rel="stylesheet/less" type="text/css" href="tab-v3.less" /> -->
+    <link rel="stylesheet" type="text/css" href="tab-v3.css" />
+    <script>
+        /* less = {
+          env: "development",
+          async: false,
+          fileAsync: false,
+          poll: 1000,
+          functions: {},
+          dumpLineNumbers: "comments",
+          relativeUrls: false,
+          rootpath: ":/a.com/"
+        }; */
+    </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.0.4/less.min.js"></script> -->
+</head>
+<body>
+  <h3>tab v3</h3>
+  <div id="tabMouseOver" class="tab">
+    <div class="tab-header">
+      <ul>
+          <li class="active">选项卡一</li>
+          <li>选项卡二</li>
+          <li>选项卡三</li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <div class="active">我是第一个内容</div>
+      <div>我是第二个内容</div>
+      <div>我是第三个内容</div>
+    </div>
+  </div>
+
+  <p>文章链接 <a href="http://i5ting.github.io/i5ting_ztree_toc/build/jquery.plugin.html">jquery.plugin</a> </p>
+
+  <script src="../../jquery.js"></script>
+  <script>
+    ;(function() {
+      $.fn.tab = function(options) {
+        // 将defaults 和 options 参数合并到{}
+        var opts = $.extend({}, $.fn.tab.defaults, options);
+
+        return this.each(function() {
+          // 此时的obj等于缓存了调用执行此插件的选择器，例如“#tab”
+          var obj = $(this);
+          $(obj).find('.tab-header li').on(opts.trigger_event_type, function() {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+
+            $(obj).find('.tab-content div').removeClass('active');
+            $(obj).find('.tab-content div').eq($(this).index()).addClass('active');
+            // 在插件内部调用了默认回调
+            opts.change($(this).index())
+          })
+        })
+      };
+      // 定义默认
+      $.fn.tab.defaults = {
+        // mouseover | click default is click
+        trigger_event_type: 'click',
+        // 定义回调
+        change: function(index) {
+          console.log('current index is: ', index);
+        }
+      };
+    })(jQuery);
+    $(function() {
+      $('#tabMouseOver').tab({
+        trigger_event_type: 'mouseover'
+      });
+    })
+  </script>
+</body>
+</html>
