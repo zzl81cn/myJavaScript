@@ -20,6 +20,12 @@
 ;(function($, window, document, undefined){
 
 	// our plugin constructor
+	/**
+	 * 定义OnePageNav对象
+	 * 这里定义一个对象OnePageNav，在调用插件的时候用new可以创建一个原对象的实例对象。我们注意到参数加了$符号的表示的是jQuery对象，没有加$符号表示的是DOM对象，这是一个 很好的习惯，在使用它们的时候就不需要做DOM对象和jQuery对象之间的转换。
+	 * @param {*} elem 
+	 * @param {*} options 
+	 */
 	var OnePageNav = function(elem, options){
 		this.elem = elem;
 		this.$elem = $(elem);
@@ -34,19 +40,33 @@
 
 	// the plugin prototype
 	OnePageNav.prototype = {
+		/**
+		 * 设置默认参数
+		 * 所有的插件几乎都会有自己的默认参数，所以在调用的时候即使不传递option也可以，在OnePageNav 的原型中的默认参数如下。
+	   */
 		defaults: {
-			navItems: 'a',
-			currentClass: 'current',
-			changeHash: false,
+			navItems: 'a', //默认<a>标签
+			currentClass: 'current', //默认当前标签的样式名
+			changeHash: false, 
 			easing: 'swing',
-			filter: '',
-			scrollSpeed: 750,
-			scrollThreshold: 0.5,
-			begin: false,
-			end: false,
-			scrollChange: false
+			filter: '', //标签过滤
+			scrollSpeed: 750, //速度
+			scrollThreshold: 0.5, //占面积比
+			begin: false, //开始回调函数
+			end: false, //结束回调函数
+			scrollChange: false //市场改变的回调函数
 		},
 
+		/**
+		 * 初始化
+		 * 注意到 $.fn.onePageNav方法中的这句话new OnePageNav(this, options).init(); 调用了OnePageNav的init方法进行初始化，现在来看看初始化都做了什么工作。可以概括为这几部分1、extend 函数用于将一个或多个对象的内容合并到目标对象，把默认设置和自定义设置合并起来。2、将标签进行 过滤 ，比如像下面这样我们要过滤掉最后一个标签，可以在option中加入  filter: ':not(.exception)', 3、给过滤后的标签绑定click方法，点击click可以scroll到对应的内容 。4、获取标签对应内容的位置，并都放在this.sections中 。5、添加一个间隔性触发定时器，目的是为了在滑动鼠标滚轮的时候根据当前显示内容，更改导航标签的class=current。6、每次窗体大小改变时重新获取标签对应内容的位置。	  <ul id="nav">
+          <li><a href="#nr">内容一</a></li>
+          <li><a href="#nt">内容二</a></li>
+          <li><a href="#ny">内容三</a></li>
+          <li><a href="#nu">内容四</a></li>
+          <li><a class="exception" href="#top">返回顶部</a></li>
+          </ul>
+		 */
 		init: function() {
 			// Introduce defaults that can be extended either
 			// globally or using an object literal.
@@ -137,7 +157,17 @@
 
 			return returnValue;
 		},
-
+		/**
+		 * 功能的实现
+		 * 其他的方法都是添加到OnePageNav.prototype上的，比较好理解，可以自己看代码。这里特别说一下回调函数。比如说下面这句话，默认值是 begin:
+				false, 
+				如果调用的时候option设置了
+				 begin: function() {
+				        //I get fired when the animation is starting
+				    },
+				每次单击导航标签的时候就会调用这个方法。如果没有设置begin，自然也不会出问题。
+		 * @param {*} e 
+		 */
 		handleClick: function(e) {
 			var self = this;
 			var $link = $(e.currentTarget);
@@ -214,6 +244,9 @@
 
 	OnePageNav.defaults = OnePageNav.prototype.defaults;
 
+	/**
+	 * jQuery.fn即$.fn是指jQuery的命名空间，所有的对象方法应当附加到就jQuery.fn对象上。这样写之后外部就可以通过这种方式调用它$('#nav').onePageNav(option）我们遵循jQuery的规范，插件应该返回一个jQuery对象，以保证插件的可链式操作。假设$('.nav')可能是一个数组，可以通过this.each来遍历所有的元素。这种情况可以用于一个页面有多个导航的时候。
+	  */
 	$.fn.onePageNav = function(options) {
 		return this.each(function() {
 			new OnePageNav(this, options).init();
