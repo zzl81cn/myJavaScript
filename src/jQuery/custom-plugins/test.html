@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>translate param</title>
+  </head>
+  <body>
+    <p>xxdsdfsdfklll</p>
+    <p>xxdsdfsdfklll</p>
+    <p>xxdsdfsdfklll</p>
+    <script src="../jquery.js"></script>
+    <script>
+      // define
+      (function($) {
+        $.fn.myPlugins = function(opts) {
+          // 默参
+          var defaults = {
+            'n': 1
+          };
+          // 将实参与默餐合并到一个对象并赋值给options
+          var options = $.extend({}, defaults, opts);
+          // 执行遍历jquery对象（return 支持链式调用）
+          return this.each(function() {
+            // 具体操作...
+            $(this).append(' ' + options.n);
+            options.n++;
+          })
+        };
+      })(jQuery);
+      // call
+      $(function() {
+        $('p').myPlugins({
+          'n': 5
+        });
+      })
+    </script>
+  </body>
+</html>

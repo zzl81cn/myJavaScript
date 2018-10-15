@@ -21,7 +21,7 @@
 
 	// our plugin constructor
 	/**
-	 * 定义OnePageNav对象
+	 * 定义OnePageNav对象：1.设置参数, 2.定义变量, 3.定义私有方法；
 	 * 这里定义一个对象OnePageNav，在调用插件的时候用new可以创建一个原对象的实例对象。我们注意到参数加了$符号的表示的是jQuery对象，没有加$符号表示的是DOM对象，这是一个 很好的习惯，在使用它们的时候就不需要做DOM对象和jQuery对象之间的转换。
 	 * @param {*} elem 
 	 * @param {*} options 
@@ -38,7 +38,7 @@
 		this.docHeight = this.$doc.height();
 	};
 
-	// the plugin prototype
+	// 定义OnePageNav对象的方法：1.调用私有方法， 2.处理DOM； the plugin prototype
 	OnePageNav.prototype = {
 		/**
 		 * 设置默认参数
@@ -59,13 +59,20 @@
 
 		/**
 		 * 初始化
-		 * 注意到 $.fn.onePageNav方法中的这句话new OnePageNav(this, options).init(); 调用了OnePageNav的init方法进行初始化，现在来看看初始化都做了什么工作。可以概括为这几部分1、extend 函数用于将一个或多个对象的内容合并到目标对象，把默认设置和自定义设置合并起来。2、将标签进行 过滤 ，比如像下面这样我们要过滤掉最后一个标签，可以在option中加入  filter: ':not(.exception)', 3、给过滤后的标签绑定click方法，点击click可以scroll到对应的内容 。4、获取标签对应内容的位置，并都放在this.sections中 。5、添加一个间隔性触发定时器，目的是为了在滑动鼠标滚轮的时候根据当前显示内容，更改导航标签的class=current。6、每次窗体大小改变时重新获取标签对应内容的位置。	  <ul id="nav">
+		 * 注意到 $.fn.onePageNav方法中的这句话new OnePageNav(this, options).init(); 调用了OnePageNav的init方法进行初始化，现在来看看初始化都做了什么工作。可以概括为这几部分：
+		 * 1、extend 函数用于将一个或多个对象的内容合并到目标对象，把默认设置和自定义设置合并起来。
+		 * 2、将标签进行过滤 ，比如像下面这样我们要过滤掉最后一个标签，可以在option中加入  filter: ':not(.exception)', 
+		 * 3、给过滤后的标签绑定click方法，点击click可以 scroll 到对应的内容。
+		 * 4、获取标签对应内容的位置，并都放在 this.sections 中。
+		 * 5、添加一个间隔性触发定时器，目的是为了在滑动鼠标滚轮的时候根据当前显示内容，更改导航标签的class=current。
+		 * 6、每次窗体大小改变时重新获取标签对应内容的位置。
+				<ul id="nav">
           <li><a href="#nr">内容一</a></li>
           <li><a href="#nt">内容二</a></li>
           <li><a href="#ny">内容三</a></li>
           <li><a href="#nu">内容四</a></li>
           <li><a class="exception" href="#top">返回顶部</a></li>
-          </ul>
+        </ul>
 		 */
 		init: function() {
 			// Introduce defaults that can be extended either
@@ -245,10 +252,12 @@
 	OnePageNav.defaults = OnePageNav.prototype.defaults;
 
 	/**
-	 * jQuery.fn即$.fn是指jQuery的命名空间，所有的对象方法应当附加到就jQuery.fn对象上。这样写之后外部就可以通过这种方式调用它$('#nav').onePageNav(option）我们遵循jQuery的规范，插件应该返回一个jQuery对象，以保证插件的可链式操作。假设$('.nav')可能是一个数组，可以通过this.each来遍历所有的元素。这种情况可以用于一个页面有多个导航的时候。
+	 * 定义插件onePageNav，在插件中使用 onePageNav 对象
+	 * (jQuery.fn即$.fn是指jQuery的命名空间，所有的对象方法应当附加到就jQuery.fn对象上。这样写之后外部就可以通过这种方式调用它$('#nav').onePageNav(option）我们遵循jQuery的规范，插件应该返回一个jQuery对象，以保证插件的可链式操作。假设$('.nav')可能是一个数组，可以通过this.each来遍历所有的元素。这种情况可以用于一个页面有多个导航的时候。)
 	  */
 	$.fn.onePageNav = function(options) {
 		return this.each(function() {
+			// 创建 onePageNav 的实体
 			new OnePageNav(this, options).init();
 		});
 	};
