@@ -1,7 +1,7 @@
-.root {
+.box {
     width: 200px;
     height: 200px;
     text-align: center;
     line-height: 200px;
-    background: red;
+    background: #efefef;
 }
