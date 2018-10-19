@@ -157,5 +157,8 @@ function tableData() {
 // tableData();
 ```
 
+## point
+- js打包时，引入js的相关资源（css，font等）会根据配置以及路径放置到样式文件夹内，例如“css”；
+
 ## rules
 - test后面的是正则表达式，不要加引号（单引号、双引号都不要）；
