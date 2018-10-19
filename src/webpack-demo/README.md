@@ -158,7 +158,8 @@ function tableData() {
 ```
 
 ## point
-- js打包时，引入js的相关资源（css，font等）会根据配置以及路径放置到样式文件夹内，例如“css”；
+- js打包时，引入js的相关资源（css，font等）会根据配置以及路径放置到样式文件夹内，例如“css”，但要注意文件名书写的正确，此处情景极易犯错；
+- ES5支持需要一个[polyfill](https://webpack.docschina.org/guides/shimming/#%E5%8A%A0%E8%BD%BD-polyfills)；
 
 ## rules
 - test后面的是正则表达式，不要加引号（单引号、双引号都不要）；
