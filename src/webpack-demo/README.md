@@ -166,3 +166,6 @@ function tableData() {
 
 ## plain
 - add jquery dependencies.
+
+## history
+- [multiple entry SplitChunksPlugin setting](https://futu.im/posts/2018-05-07-webpack4/)
