@@ -169,3 +169,4 @@ function tableData() {
 
 ## history
 - [multiple entry SplitChunksPlugin setting](https://futu.im/posts/2018-05-07-webpack4/)
+- 20181025 search splitchunksplugin使用.
