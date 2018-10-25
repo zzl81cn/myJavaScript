@@ -163,3 +163,6 @@ function tableData() {
 
 ## rules
 - test后面的是正则表达式，不要加引号（单引号、双引号都不要）；
+
+## plain
+- add jquery dependencies.
