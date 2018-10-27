@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     mode: 'development',
@@ -11,29 +12,73 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, "dist"),
-        publicPath: '/dist/',       //模板、样式、脚本、图片等资源对应的server上的路径
+        publicPath: '/dist',       //模板、样式、脚本、图片等资源对应的server上的路径
         filename: 'js/[name].js',
         // chunkFilename: 'js/[id].chunk.js'
     },
     devServer: {
         contentBase: './',
         host: 'localhost',
-        port: 9000
+        port: 9000,
+        hot: true
     },
     module: {
         rules: [
             {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                // include: path.resolve('./src/js/app'),
+            },
+            {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ]
+            },{
+                test: /\.less$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                    'less-loader'
+                ]
+            },{//图片设置，小于8192自动打包为base64
+                test: /\.(png|jpg|gif|gif)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                        mimetype:'image/png',
+                        publicPath : '../',
+                        name:'images/[name].[ext]'
+                    }
+                }]
+            },{//对字体文件的处理
+                test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        publicPath : '../',
+                        name:'fonts/[name].[ext]'
+                    }
+                }]
             }
         ]
     },
+    resolve:{
+        alias: {
+            jQuery: path.resolve(__dirname, './src/libs/jquery/jquery.min.js'),
+        }
+    },
     plugins: [
-        /* new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendors', // 将公共模块提取，生成名为`vendors`的chunk
-            chunks: ['index','test'], //提取哪些模块共有的部分
-            minChunks: 2 // 提取至少3个模块共有的部分
-        }), */
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.ProvidePlugin({
+            $: 'jQuery',
+            jquery: "jQuery",
+            jQuery: "jQuery",
+            "window.jQuery": "jQuery"
+        }),
         new webpack.optimize.SplitChunksPlugin({
             chunks: 'all',
             minSize: 30000,
@@ -55,7 +100,7 @@ module.exports = {
                 }
             } */
         }),
-
+        new MiniCssExtractPlugin({filename: "css/[name].css"}),
         /* new htmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/index.html')
         }) */
