@@ -1,4 +1,4 @@
-require('../css/index.css');
+require('../assets/css/index.css');
 
 function create(){
     const elem = document.createElement('div');
