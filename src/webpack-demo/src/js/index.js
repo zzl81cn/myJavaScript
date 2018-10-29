@@ -15,9 +15,8 @@ $(function () {
   $("#J_ajaxContent").ace_ajax({
     content_url: function (hash) {
       // http://ace.eued.tk/html/ajax/#page/jqgrid
-      //   return "../views/" + hash + ".html";
-        // return "views/" + hash + ".html";
-      return hash + ".html";
+        return "views/" + hash + ".html";
+      // return hash + ".html";
       //   return "/views" + hash + ".html";
     },
     default_url: "icon",
