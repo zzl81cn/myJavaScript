@@ -10,19 +10,18 @@ require('../libs/ace-1.4.0/build/js/ace.min.js');
 require('../libs/ace-1.4.0/build/js/ace-elements.min.js');
 require('../libs/ace-1.4.0/build/js/ace-extra.min.js');
 
-// $('h1').append('<div>Hello World haha1</div>');
 
-// console.log('index page.')
-
-$(function() {
+$(function () {
   $("#J_ajaxContent").ace_ajax({
-      content_url: function(hash) {
-        //   return "/views/" + hash + ".html";
-          return "../views/" + hash + ".html";
-        //   return hash + ".html";
-      },
-      default_url: "icon",
-      loading_icon: "fa fa-refresh blue"
+    content_url: function (hash) {
+      // http://ace.eued.tk/html/ajax/#page/jqgrid
+      //   return "../views/" + hash + ".html";
+      //   return "views/" + hash + ".html";
+      return hash + ".html";
+      //   return "/views" + hash + ".html";
+    },
+    default_url: "icon",
+    loading_icon: "fa fa-refresh blue"
   });
-  console.log('content append is ok')
+  // console.log('content append is ok location.hash is: ', window.location.hash)
 })
