@@ -1,4 +1,7 @@
 /* iocns script */
+require('../assets/css/icon.css');
+
+console.log('icons module.');
 
 // font awesome
 var ICON_FWA_DATA = [
@@ -1051,7 +1054,6 @@ var ICON_GENERATOR = [
  * @param {*} iconName 特定字体的name
  */
 function renderIconList(selector, data, iconName) {
-  console.log('icons ok.')
   $(selector).html(function(){
     var htmlStr = '';
     $.each(data, function(i, n) {
