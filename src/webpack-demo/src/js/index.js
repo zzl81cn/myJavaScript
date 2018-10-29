@@ -16,7 +16,7 @@ $(function () {
     content_url: function (hash) {
       // http://ace.eued.tk/html/ajax/#page/jqgrid
       //   return "../views/" + hash + ".html";
-      //   return "views/" + hash + ".html";
+        // return "views/" + hash + ".html";
       return hash + ".html";
       //   return "/views" + hash + ".html";
     },

@@ -16,7 +16,7 @@ let commonConfig = {
     }, */
     entry: entry,
     output: {
-        path: path.join(__dirname, './dist/'),
+        path: path.join(__dirname, 'dist'),
         publicPath: '/', //模板、样式、脚本、图片等资源对应的server上的路径(公式：静态资源最终访问路径 = output.publicPath + 资源 loader 或插件等配置路径)
         filename: 'js/[name].js',
         // chunkFilename: 'js/[id].chunk.js'
