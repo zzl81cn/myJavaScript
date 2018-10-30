@@ -1,44 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>首页</title>
+    <meta name="description" content="东方资产" />
 </head>
-<body>
-    <h1>test</h1>
-    <h1>test</h1>
-    <div class="container">
-        <div class="row col-md-6">
-            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                <i class="glyphicon glyphicon-user"></i> Launch demo modal
-            </button>
+
+<body class="no-skin">
+    <!-- <div class="navbar" id="navbar">
+        <div class="navbar-header pull-left">
+            <a href="#" class="navbar-brand">
+                <small>东方资产管理平台</small>
+            </a>
         </div>
-        <div class="row col-md-6">34
-          <img src="../externals/images/jianshu_logo.png" alt="">
-          <img src="../externals/images/abdab.jpg" alt="">
-        </div>
-    </div>
-    <!-- Button trigger modal -->
-  
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+    </div> -->
+    <div id="navbar" class="navbar navbar-default">
+        <script type="text/javascript">
+          try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+        </script>
+
+        <div class="navbar-container" id="navbar-container">
+          <!-- #section:basics/sidebar.mobile.toggle -->
+          <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+            <span class="sr-only">Toggle sidebar</span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+          </button>
+
+          <!-- /section:basics/sidebar.mobile.toggle -->
+          <div class="navbar-header pull-left">
+            <!-- #section:basics/navbar.layout.brand -->
+            <a href="#" class="navbar-brand">
+              <small>
+                <!--<i class="fa fa-leaf"></i>-->
+                <img src="../assets/images/logo.png">
+              </small>
+            </a>
+
+            <!-- /section:basics/navbar.layout.brand -->
+
+            <!-- #section:basics/navbar.toggle -->
+
+            <!-- /section:basics/navbar.toggle -->
+          </div>
+
+          <!-- #section:basics/navbar.dropdown -->
+          <!-- user-buttons.less -->
+          <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <!-- <li class="grey"> -->
+                <li class="opacity">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    首页
+                  </a>
+                </li>
+
+                <!-- <li class="purple"> -->
+                <li class="opacity">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    组件
+                  </a>
+                </li>
+
+                <!-- <li class="green"> -->
+                <li class="opacity">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    后台模板
+                    <b class="arrow fa fa-angle-down"></b>
+                  </a>
+                  <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                          <a href="#">
+                            <i class="ace-icon fa fa-cog"></i>
+                            设置
+                          </a>
+                        </li>
+
+                        <li>
+                          <a href="#">
+                            <i class="ace-icon fa fa-user"></i>
+                            个人中心
+                          </a>
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li>
+                          <a href="#">
+                            <i class="ace-icon fa fa-power-off"></i>
+                            退出
+                          </a>
+                        </li>
+                      </ul>
+                </li>
+
+                <li class="opacity">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                      系统管理
+                    </a>
+                </li>
+
+                <!-- #section:basics/navbar.user_menu -->
+                <!-- <li class="light-blue"> -->
+                <li class="opacity">
+                  <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                    <img class="nav-user-photo" src="../assets/images/user.jpg" alt="Jason's Photo" />
+                    <span class="user-info">欢迎使用,用户</span>
+                    <b class="arrow fa fa-angle-down"></b>
+                  </a>
+
+                  <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                    <li>
+                      <a href="#">
+                        <i class="ace-icon fa fa-cog"></i>
+                        设置
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#">
+                        <i class="ace-icon fa fa-user"></i>
+                        个人中心
+                      </a>
+                    </li>
+
+                    <li class="divider"></li>
+
+                    <li>
+                      <a href="#">
+                        <i class="ace-icon fa fa-power-off"></i>
+                        退出
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="opacity">
+                    <a class="dropdown-toggle" href="javascript:;">
+                      v1.0
+                    </a>
+                </li>
+
+                <!-- /section:basics/navbar.user_menu -->
+              </ul>
+          </div>
+
+          <!-- /section:basics/navbar.dropdown -->
+        </div><!-- /.navbar-container -->
       </div>
+
+    <div class="main-container" id="main-container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-toggle sidebar-collapse">
+                <i class="ace-icon fa fa-angle-double-right" data-icon1="ace-icon fa fa-angle-double-right" data-icon2="ace-icon fa fa-angle-double-left"></i>
+            </div>
+            <ul class="nav nav-list">
+                <!-- <li>
+                    <a href="#">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        <span class="menu-text"> 开发平台简介 </span>
+                    </a>
+                    <b class="arrow"></b>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        <span class="menu-text"> 更新日志 </span>
+                    </a>
+                    <b class="arrow"></b>
+                </li> -->
+                <li class="open">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-th"></i>
+                        <span class="menu-text"> 布局 </span>
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="#test" data-url="test">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                <span>TEST</span> test
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                        <li class="">
+                            <a href="#icon" data-url="icon">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                <span>Icon</span> 图标
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+                <li class="open">
+                    <a href="#" class="dropdown-toggle">
+                        <i class="menu-icon fa fa-delicious"></i>
+                        <span class="menu-text"> other </span>
+                        <b class="arrow fa fa-angle-down"></b>
+                    </a>
+                    <b class="arrow"></b>
+
+                    <ul class="submenu">
+                        <li class="">
+                            <a href="./test.html">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                <span>test</span> 登录test
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- <div class="sidebar-toggle sidebar-collapse">
+                <i class="ace-icon fa fa-angle-double-right" data-icon1="ace-icon fa fa-angle-double-right" data-icon2="ace-icon fa fa-angle-double-left"></i>
+            </div> -->
+        </div>
+
+        <div class="main-content">
+            <div class="breadcrumbs">
+                <!-- breadcrumbs goes here -->
+            </div>
+
+            <div id="J_ajaxContent" class="page-content">
+                <!-- setting box goes here if needed -->
+
+                <!-- <div class="row"> -->
+                    <!-- <div class="col-xs-12"> -->
+                        <!-- page content goes here -->
+                    <!-- </div> -->
+                    <!-- /.col -->
+                <!-- </div> -->
+                <!-- /.row -->
+
+            </div><!-- /.page-content -->
+        </div><!-- /.main-content -->
+
+        <!-- footer area -->
+
     </div>
-  </div>
 </body>
 </html>

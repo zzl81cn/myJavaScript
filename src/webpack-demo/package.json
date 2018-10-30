@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tmp": "npm run tmp2 && webpack-dev-server --config webpack.normal.config.js --progress --colors",
+    "tmp": "webpack-dev-server --config webpack.normal.config.js --progress --colors",
     "tmp2": "webpack --config webpack.build.config.js --progress --colors",
     "start": "npm run prod && cross-env NODE_ENV=dev webpack-dev-server --progress --colors --open",
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress",
