@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tmp": "webpack-dev-server --config webpack.normal.config.js --progress --colors",
-    "tmp2": "webpack --config webpack.build.config.js --progress --colors",
+    "build": "webpack --config webpack.build.config.js --progress --colors",
     "start": "npm run prod && cross-env NODE_ENV=dev webpack-dev-server --progress --colors --open",
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --progress",
     "prod": "cross-env NODE_ENV=prod webpack --progress",

@@ -11,17 +11,13 @@ const entry = getEntry(path.resolve(__dirname, 'src/js'));
 let commonConfig = {
     entry: entry,
     output: {
-      path: path.resolve('./dist'),
+      path: path.resolve('dist'),
       publicPath: '/', //模板、样式、脚本、图片等资源对应的server上的路径
       filename: 'js/[name].js',
     },
     mode: 'production',
     module: {
         rules: [
-            /* {
-              test: /\.html$/,
-              use: 'html-loader'
-            }, */
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -74,7 +70,7 @@ let commonConfig = {
           // root: path.resolve('./'),    // 设置root
           verbose: true
         }),
-          new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.ProvidePlugin({
           $: 'jQuery',
           jQuery: 'jQuery',
@@ -98,12 +94,25 @@ let commonConfig = {
         }),
         new CopyWebpackPlugin([
           {
+            // shortcut icon
+            from: path.resolve(__dirname, './src/touch-icon.jpg'),
+            to: path.resolve('./dist/'),
+          },
+          {
+            // 普通资源
             from: path.resolve(__dirname, './src/assets/'),
             to: path.resolve('./dist/assets/'),
             force: true,
             toType: 'dir',
           //   ignore: ['.*']
-          }
+          },
+          {
+            // img的src类型静态资源
+            from: path.resolve(__dirname, './src/externals/'),
+            to: path.resolve('./dist/externals/'),
+            force: true,
+            toType: 'dir',
+          },
         ]),
     
         new MiniCssExtractPlugin({filename: "css/[name].css"}),
@@ -142,7 +151,7 @@ function getEntry(){
 // 根据模板插入css/js等生成最终HTML.
 getRoot('src/views/*.html').forEach(fileName => {
   let conf = {
-      favicon: './src/assets/images/touch-icon.png', //favicon路径，通过webpack引入同时可以生成hash值
+      favicon: './src/touch-icon.jpg', //favicon路径，通过webpack引入同时可以生成hash值
       filename: 'views/' + fileName + '.html', // 生成的html存放路径，相对于 path
       template: path.resolve(__dirname, './src/views/' + fileName + '.html'), // html模板路径
       inject: true, // 'head', body, true, false

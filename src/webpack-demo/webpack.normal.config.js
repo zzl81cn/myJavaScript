@@ -4,6 +4,7 @@ const glob = require("glob");
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const entry = getEntry(path.resolve(__dirname, './src/js'));
@@ -87,6 +88,10 @@ let commonConfig = {
         }
     },
     plugins: [
+        new CleanWebpackPlugin(path.resolve('./dist'), {
+          // root: path.resolve('./'),    // 设置root
+          verbose: true
+        }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.ProvidePlugin({
           $: 'jQuery',
@@ -156,7 +161,7 @@ function getEntry(){
 // 根据模板插入css/js等生成最终HTML.
 getRoot('src/views/*.html').forEach(fileName => {
   let conf = {
-      favicon: './src/touch-icon.png', //favicon路径，通过webpack引入同时可以生成hash值
+      favicon: './src/touch-icon.jpg', //favicon路径，通过webpack引入同时可以生成hash值
       template: './src/views/' + fileName + '.html', // html模板路径
       filename: 'views/' + fileName + '.html', // 生成的html存放路径，相对于 path
       inject: true, // 'head', body, true, false
