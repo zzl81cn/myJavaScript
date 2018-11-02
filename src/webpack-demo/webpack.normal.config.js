@@ -16,6 +16,12 @@ let commonConfig = {
         icon: './src/js/icon.js'
     }, */
     entry: entry,
+    /**
+     * 以下路径相当于：
+     * 1.path： 文件输出路径，那这里就是根目录下的“dist”，后面的配置均以此为根目录；
+     * 2.publicPath：资源路径，这里就是接着“dist”后面来了；
+     * 3.filename：字符串内一般文件名前加了对应的类型文件夹，这里的意思就是把js文件设为“./dist/js/*.js”；
+      */
     output: {
         path: path.join(__dirname, 'dist'),
         publicPath: '/', //模板、样式、脚本、图片等资源对应的server上的路径(公式：静态资源最终访问路径 = output.publicPath + 资源 loader 或插件等配置路径)
