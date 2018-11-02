@@ -43,29 +43,27 @@
         }
       });
     },
-    renderTable: function() {
-      drawTable(data) {
-        // console.log('table ok')
-        var htmlStr = '',
-            data = data;
-        $('#tableNormal tbody').html(function () {
-          $.each(data, function (i, n) {
-            htmlStr += '<tr>'
-              + '<td>' + n.key + '</td>'
-              + '<td>' + n.accountNo + '</td>'
-              + '<td>' + n.owner + '</td>'
-              + '<td>' + n.titles + '</td>'
-              + '<td>' + n.status + '</td>'
-              + '<td>' + n.validity + '</td>'
-              + '<td>' + n.callNo + '</td>'
-              + '<td>' + n.email + '</td>'
-              + '<td>' + n.callNo + '</td>'
-              + '<td>' + n.gender + '</td>'
-              + '</tr>'
-          });
-          return htmlStr;
+    renderTable: function(data) {
+      // console.log('table ok')
+      var htmlStr = '',
+          data = data;
+      $('#tableNormal tbody').html(function () {
+        $.each(data, function (i, n) {
+          htmlStr += '<tr>'
+            + '<td>' + n.key + '</td>'
+            + '<td>' + n.accountNo + '</td>'
+            + '<td>' + n.owner + '</td>'
+            + '<td>' + n.titles + '</td>'
+            + '<td>' + n.status + '</td>'
+            + '<td>' + n.validity + '</td>'
+            + '<td>' + n.callNo + '</td>'
+            + '<td>' + n.email + '</td>'
+            + '<td>' + n.callNo + '</td>'
+            + '<td>' + n.gender + '</td>'
+            + '</tr>'
         });
-      }
+        return htmlStr;
+      });
     }
   },
 
