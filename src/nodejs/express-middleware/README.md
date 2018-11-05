@@ -30,6 +30,24 @@ res.send()&res.json() -> data&?
                     xxModel.js(public/js/app/models)ajax获取数据等
 ```
 
+# sales website host apiURLConfig
+``` bash
+appConfig.json
+        |
+        V
+    xx-view>common>common.js
+    getApiURL: function() {return global.appConfig.apiURL}
+            |
+            V
+            runnable>startup.js
+            init app configs > global.appConfig.apiURL = appConfig.apiURL || "http://testyx.com";
+                |
+                V
+                const serviceCommon = require('../../common/common');
+                const host = serviceCommon.getApiURL();
+
+```
+
 ## invest
 ### investBiz.js
 
