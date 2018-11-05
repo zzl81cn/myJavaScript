@@ -6,6 +6,9 @@
   };
   ThisModule.prototype = {
     init: function() {
+      this.render();
+    },
+    render: function() {
       var data = this.defineData();
       this.renderTable(data);
     },
