@@ -6,7 +6,8 @@
   };
   ThisModule.prototype = {
     init: function() {
-      //
+      var data = this.defineData();
+      this.renderTable(data);
     },
     defineData: function() {
       let tableListDataSource = [];
@@ -29,8 +30,10 @@
           gender: i % 6 === 0,
           progress: Math.ceil(Math.random() * 100),
         });
-      }
+      };
+      return tableListDataSource;
     },
+    // ajax visit json file
     asData: function() {
       $.ajax({
         url: "../static/json/standardTable.json",
@@ -65,7 +68,7 @@
         return htmlStr;
       });
     }
-  },
+  }
 
   ThisModule();
 })()
