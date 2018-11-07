@@ -109,5 +109,23 @@
     // one moment
     $('div').tooltip('destroy')
   </script>
+  <script type="text/javascript">
+    /* $(document).ready(function() {
+      //create huge treetable
+      var count_root_elements=100;
+      var count_deep=10;
+      console.log('init');
+      for(var i=0; i<count_root_elements; i++){
+        console.log('add');
+        var tr=$("<tr></tr>").addClass("treegrid-"+i+"-0").appendTo($('.tree')).html("<td>Root node "+i+"</td><td>Additional info</td>");
+
+        for(var j=1; j<count_deep; j++){
+          $("<tr></tr>").addClass("treegrid-"+i+"-"+j).addClass("treegrid-parent-"+i+"-"+(j-1)).appendTo($('.tree')).html("<td>Child node "+i+"-"+j+"</td><td>Additional info</td>");
+        }
+      }
+
+      // $('.tree').treegrid();
+    }); */
+  </script>
 </body>
 </html>
