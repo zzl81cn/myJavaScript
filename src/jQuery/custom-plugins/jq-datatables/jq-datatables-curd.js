@@ -87,7 +87,7 @@ return table;
 */
 function _deleteFun(id) {
 $.ajax({
-    url: "<a class="vglnk" href="http://dt.thxopen.com/example/resources/user_share/basic_curd/deleteFun.php" rel="nofollow"><span>http</span><span>://</span><span>dt</span><span>.</span><span>thxopen</span><span>.</span><span>com</span><span>/</span><span>example</span><span>/</span><span>resources</span><span>/</span><span>user</span><span>_</span><span>share</span><span>/</span><span>basic</span><span>_</span><span>curd</span><span>/</span><span>deleteFun</span><span>.</span><span>php</span></a>",
+    url: '<a class="vglnk" href="http://dt.thxopen.com/example/resources/user_share/basic_curd/deleteFun.php" rel="nofollow"><span>http</span><span>://</span><span>dt</span><span>.</span><span>thxopen</span><span>.</span><span>com</span><span>/</span><span>example</span><span>/</span><span>resources</span><span>/</span><span>user</span><span>_</span><span>share</span><span>/</span><span>basic</span><span>_</span><span>curd</span><span>/</span><span>deleteFun</span><span>.</span><span>php</span></a>',
     data: {"id": id},
     type: "post",
     success: function (backdata) {
@@ -162,7 +162,7 @@ var jsonData = {
     'note': $("#inputNote").val()
 };
 $.ajax({
-    url: "<a class="vglnk" href="http://dt.thxopen.com/example/resources/user_share/basic_curd/insertFun.php" rel="nofollow"><span>http</span><span>://</span><span>dt</span><span>.</span><span>thxopen</span><span>.</span><span>com</span><span>/</span><span>example</span><span>/</span><span>resources</span><span>/</span><span>user</span><span>_</span><span>share</span><span>/</span><span>basic</span><span>_</span><span>curd</span><span>/</span><span>insertFun</span><span>.</span><span>php</span></a>",
+    url: '<a class="vglnk" href="http://dt.thxopen.com/example/resources/user_share/basic_curd/insertFun.php" rel="nofollow"><span>http</span><span>://</span><span>dt</span><span>.</span><span>thxopen</span><span>.</span><span>com</span><span>/</span><span>example</span><span>/</span><span>resources</span><span>/</span><span>user</span><span>_</span><span>share</span><span>/</span><span>basic</span><span>_</span><span>curd</span><span>/</span><span>insertFun</span><span>.</span><span>php</span></a>',
     data: jsonData,
     type: "post",
     success: function (backdata) {
