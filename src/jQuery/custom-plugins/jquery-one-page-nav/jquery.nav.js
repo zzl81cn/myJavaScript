@@ -22,7 +22,7 @@
 	// our plugin constructor
 	/**
 	 * 定义OnePageNav对象：1.设置参数, 2.定义变量, 3.定义私有方法；
-	 * 这里定义一个对象OnePageNav，在调用插件的时候用new可以创建一个原对象的实例对象。我们注意到参数加了$符号的表示的是jQuery对象，没有加$符号表示的是DOM对象，这是一个很好的习惯，在使用它们的时候就不需要做DOM对象和jQuery对象之间的转换。
+	 * 这里定义一个对象 OnePageNav ，在调用插件的时候用new可以创建一个原对象的实例对象。我们注意到参数加了$符号的表示的是jQuery对象，没有加$符号表示的是DOM对象，这是一个很好的习惯，在使用它们的时候就不需要做DOM对象和jQuery对象之间的转换。
 	 * 需要分解我们的实现代码为多个函数，该怎么办？有很多原因：设计上的需要；这样做更容易或更易读的实现；而且这样更符合面向对象。
 	 * @param {*} elem 
 	 * @param {*} options 
@@ -79,7 +79,7 @@
 			// Introduce defaults that can be extended either
 			// globally or using an object literal.
 			this.config = $.extend({}, this.defaults, this.options, this.metadata);
-
+			/* $elem就是将初始化插件传进来的“nav标记”包装为jquery对象，在此基础上向下找“defaults.navItems”，这个就是自身默参的“a标签”，那么结果就是a标签的jquery对象。 */
 			this.$nav = this.$elem.find(this.config.navItems);
 
 			//Filter any links out of the nav
@@ -153,6 +153,22 @@
 			});
 		},
 
+		/* 
+							---------------------------
+							|    init(){}			    		
+							|this(OnePageNav instance)
+							|  adjustNav:func(){}
+							|  bindIntervel:func(){}
+							|  getHash:func(){}
+							|  getPositions:func(){}
+							|  ...
+							|    ------------------
+							|    |                |
+							|    |getPosition     |
+							|    |  self(p>this)  |
+							|    |                |
+		
+		*/
 		getSection: function(windowPos) {
 			var returnValue = null;
 			var windowHeight = Math.round(this.$win.height() * this.config.scrollThreshold);
