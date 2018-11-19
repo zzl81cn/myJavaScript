@@ -35,3 +35,6 @@
 ###  sass --watch .\style.scss:style.css
 
 ## [2018 developer roadmap](https://github.com/kamranahmedse/developer-roadmap)
+
+## pagination
+- pagination-ex: src\jQuery\custom-plugins\pagination\pagination.js
