@@ -46,6 +46,7 @@
     return target;
   };
 
+  
   /* $.fn.myTable = function(options) {
     var opts = $.extend({}, $.fn.myTable.defaults, options);
     return this.each(function() {
