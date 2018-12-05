@@ -1,3 +1,8 @@
+/**
+ * @author zzl81cn
+ * @since 2018-10-18
+ * @desc 表格插件示例，还需要增加初始化插件时，根据不同数据源结构可配置不同表头的处理逻辑
+  */
 ;(function($) {
   var MyTable = function(elem, options) {
     this.elem = elem; /* 1 */
