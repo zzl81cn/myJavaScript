@@ -38,3 +38,6 @@
 
 ## pagination
 - pagination-ex: src\jQuery\custom-plugins\pagination\pagination.js
+
+## plan
+* 完善jquery table plugin；
