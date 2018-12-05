@@ -41,3 +41,4 @@
 
 ## plan
 * 完善jquery table plugin；
+* 自定义导航插件，再弄一个根据scrollTop实现滚动监听的版本；
