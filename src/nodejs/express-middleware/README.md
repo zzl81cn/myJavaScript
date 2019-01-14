@@ -21,7 +21,10 @@ res.send()&res.json() -> data&?
            Biz
             |
             V
-          router   --->   views
+          router   --->  Model(Only Ajax, sames type)
+                            |
+                            V
+                          views(Only views proccess, sames type)
                             ^
             |               | (webpack)
                          xx.js(public/js/app/src)
