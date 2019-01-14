@@ -18,10 +18,13 @@ res.send()&res.json() -> data&?
          service
             |
             V
+           Biz
+            |
+            V
           router   --->   views
-            ^               ^
+                            ^
             |               | (webpack)
-           Biz           xx.js(public/js/app/src)
+                         xx.js(public/js/app/src)
                             ^
                             |
                      xxView.js(public/js/app/views) 操作DOM等
