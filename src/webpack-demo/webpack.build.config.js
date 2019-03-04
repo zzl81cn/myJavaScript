@@ -1,3 +1,7 @@
+/**
+ * @author zzl81cn
+ * @description webpack多页面打包示例（自动遍历入口html、js）
+ */
 const path = require('path');
 const fs = require("fs");
 const glob = require("glob");
