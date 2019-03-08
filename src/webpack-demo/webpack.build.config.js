@@ -183,5 +183,3 @@ function getRoot(viewsPath) {
   }
   return entries;
 }
-
-//
