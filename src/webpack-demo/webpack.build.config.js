@@ -1,6 +1,6 @@
 /**
  * @author zzl81cn
- * @description webpack多页面打包示例（自动遍历入口html、js）
+ * @description webpack多页面打包示例（自动遍历入口html-getRoot、js-getEntry）
  */
 const path = require('path');
 const fs = require("fs");
@@ -183,3 +183,5 @@ function getRoot(viewsPath) {
   }
   return entries;
 }
+
+//
