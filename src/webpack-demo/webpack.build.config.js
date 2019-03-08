@@ -11,6 +11,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const wpUtils = require('./webpackConfig/wpUtils'); // 原getRoot()的抽取版本
 
 const entry = getEntry(path.resolve(__dirname, 'src/js'));
 let commonConfig = {
@@ -154,7 +155,7 @@ function getEntry(){
 };
 
 // 根据模板插入css/js等生成最终HTML.
-getRoot('src/views/*.html').forEach(fileName => {
+wpUtils.getRoot('src/views/*.html').forEach(fileName => {
   let conf = {
       favicon: './src/touch-icon.jpg', //favicon路径，通过webpack引入同时可以生成hash值
       filename: 'views/' + fileName + '.html', // 生成的html存放路径，相对于 path
@@ -169,18 +170,3 @@ getRoot('src/views/*.html').forEach(fileName => {
   };
   module.exports.plugins.push(new HtmlWebpackPlugin(conf));
 });
-
-// 返回多入口文件遍历结果数组（主文件名部分，不含扩展名）
-function getRoot(viewsPath) {
-  let files = glob.sync(viewsPath);
-  let entries = [];
-  let entry, basename, extname;
-
-  for (let i = 0; i < files.length; i++) {
-      entry = files[i];
-      extname = path.extname(entry); // 扩展名 eg: .html
-      basename = path.basename(entry, extname);  // eg: index
-      entries.push(basename);
-  }
-  return entries;
-}
