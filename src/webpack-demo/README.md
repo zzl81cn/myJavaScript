@@ -171,3 +171,7 @@ function tableData() {
 - [multiple entry SplitChunksPlugin setting](https://futu.im/posts/2018-05-07-webpack4/)
 - 20181025 search splitchunksplugin使用.
 - 20181027 webpack静态HTML如何打包插入图片.
+
+## xx
+- 感觉webpack4的时候，更注重了配置，写的配置信息其实就是参数;<2019-03-11>
+- UI组件使用原生js，其他依靠css，是不是更容易实现跨前端框架;<2019-03-11>
