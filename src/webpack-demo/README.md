@@ -175,4 +175,5 @@ function tableData() {
 ## xx
 - 感觉webpack4的时候，更注重了配置，写的配置信息其实就是参数;<2019-03-11>
 - UI组件使用原生js，其他依靠css，是不是更容易实现跨前端框架;<2019-03-11>
-- 现在的开发产出解决了上一次未解决的问题，例如：menuData api的方式;
+- 现在的开发产出解决了上一次未解决的问题，例如：menuData API的方式;
+- static task，nodejs、express、template engine(artTemplate)、webpack、gulp;
