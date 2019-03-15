@@ -18,7 +18,7 @@ let commonConfig = {
     entry: entry,
     output: {
       path: path.resolve('dist'),
-      publicPath: '/', //模板、样式、脚本、图片等资源对应的server上的路径
+      publicPath: '', //模板、样式、脚本、图片等资源对应的server上的路径
       filename: 'js/[name].js',
     },
     mode: 'production',
@@ -131,6 +131,8 @@ let commonConfig = {
 module.exports = commonConfig;
 // 返回多入口文件遍历结果数组
 function getEntry(){
+    console.log('haha');
+
   let args = Array.prototype.slice.call(arguments)
       ,dir = args[0]
       ,_files = args[1]

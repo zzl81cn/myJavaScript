@@ -12,6 +12,7 @@ res.send()&res.json() -> data&?
 
 ## flow-map
 ``` bash
+    dubbo runnable\startup.js(zk.initConnection)
       DoubbleClient <-- HessianProxy <-- proxy
             |
             V
