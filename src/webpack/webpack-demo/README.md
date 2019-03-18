@@ -177,3 +177,5 @@ function tableData() {
 - UI组件使用原生js，其他依靠css，是不是更容易实现跨前端框架;<2019-03-11>
 - 现在的开发产出解决了上一次未解决的问题，例如：menuData API的方式;
 - static task，nodejs、express、template engine(artTemplate)、webpack、gulp;
+- 示例组合之webpack+react(vue, ...)
+- 示例组合之nodejs+webpack+jquery(react, vue)
