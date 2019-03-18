@@ -27,7 +27,7 @@ res.send()&res.json() -> data&?
                             V
                           views(Only views proccess, sames type)
                             ^
-            |               | (webpack)
+                            | (webpack)
                          xx.js(public/js/app/src)
                             ^
                             |
