@@ -15,6 +15,7 @@ function question() {
 		}, 1000);
 	}
 }
+question(); // 4 ... 4 ... 4 ... 4
 
 function resolveClosure() {
 	for(var i = 0;i<arr.length;i++){
@@ -26,7 +27,8 @@ function resolveClosure() {
 			//console.log(is)
 		}(i), 3000)
 	}
-}
+};
+resolveClosure(); // 0 ... 1 ... 2 ... 3 ... 4
 
 function resolveES6() {
 	for(let i = 0;i< arr.length; i++){
