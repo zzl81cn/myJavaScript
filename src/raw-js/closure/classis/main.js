@@ -19,7 +19,7 @@ question(); // 4 ... 4 ... 4 ... 4
 
 function resolveClosure() {
 	for(var i = 0;i<arr.length;i++){
-		// 给每个函数传入变量 i 让其能访问正确的索引
+		// 给每个函数传入变量 i 让其能访问正确的索引，此时的is是形参
 		setTimeout(function(is){
 			return function(){
 				console.log(is)
@@ -40,6 +40,7 @@ function resolveES6() {
 	}
 }
 
+// 此时参考上面的“resolveClosure(){}”给每个函数传入变量
 function syncAsync() {
 	for(var i = 0; i< 5;i++) {
 		setTimeout(function () {
