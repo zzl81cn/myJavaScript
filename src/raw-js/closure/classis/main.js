@@ -31,7 +31,7 @@ function resolveClosure() {
 resolveClosure(); // 0 ... 1 ... 2 ... 3 ... 4
 
 function resolveES6() {
-	for(let i = 0;i< arr.length; i++){
+	for (let i = 0; i < arr.length; i++) {
 		// 使用 ES6 中的 let 关键字，它会在函数调用时创建一个新的绑定
 		// 了解更多：http://exploringjs.com/es6/ch_variables.html#sec_let-const-loop-heads
 		setTimeout(function () {
