@@ -40,6 +40,44 @@
  * */
 
 
+ /* 
+ 　3、请阐述forEach与map两个循环方法的差别。如果选择？
+　　为了方便理解这两个方法，让我们分别来看这两个方法的功能。
+
+　　forEach
+
+遍历数组中的每个元素
+为每个元素执行一个回调函数
+不会有任何返回值
+复制代码
+1 const a = [1, 2, 3];
+2 const doubled = a.forEach((num, index) => {
+3   // Do something with num and/or index.
+4 });
+5 
+6 // doubled = undefined
+复制代码
+　　
+
+　　map
+
+遍历数组中的每个元素
+为每个元素执行改函数，并对应生成一个新元素，最终返回一个新数组
+复制代码
+1 const a = [1, 2, 3];
+2 const doubled = a.map(num => {
+3   return num * 2;
+4 });
+5 
+6 // doubled = [2, 4, 6]
+复制代码
+　　所以这两个方法最主要的区别就在于map会返回一个新数组。如果你需要接收处理结果，并且不修改原始数组，那么map就是最合适的选择。如果你只是希望单独循环一个数组的元素，那么forEach可以胜任。
+
+　　引用文档：
+
+　　https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
+ */
+
 // ## API
 //    http://www.w3school.com.cn/jsref/jsref_splice.asp
 var arr = [];
