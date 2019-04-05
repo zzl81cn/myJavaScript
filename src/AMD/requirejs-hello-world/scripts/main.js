@@ -20,8 +20,8 @@ require.config({
 var reqUrl = {
 	datasource: {
 		// url: ' /goods/faverGoods?type=1&catId=101',
-		url: '/mockjsdata/11697/categorylist',
-		methodType: 'get'
+		url: 'https://easy-mock.com/mock/5a0d2eb685e6ba3feeead78c/example/promise-aticle-item',
+		methodType: 'GET'
 	}
 };
 
@@ -29,5 +29,7 @@ require(['hello'], function (hello) {
 	hello.replace('#hello', 'Hello RequireJS & AMD');
 });
 require(['getMallData'], function (getMallData) {
-	getMallData.getMallOne(reqUrl.datasource.url, reqUrl.datasource.methodType)
+	getMallData.getMallOne(reqUrl.datasource.url, reqUrl.datasource.methodType, function (data) {
+		$('#hello').after('<p>' + data.timestamp + '</p>');
+	})
 });

@@ -9,8 +9,8 @@ define('getMallData', ['jquery'], function ($) {
 				type: type,
 				// data: data,
 				success: function (data) {
-					// success(data);
 					console.info(data);
+					success(data);
 				}/*,
 				 error: function (status) {
 				 	error(status)
