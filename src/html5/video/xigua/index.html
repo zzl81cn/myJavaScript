@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="referrer" content="no-referrer">
+    <title>播放器</title>
+    <style type="text/css">
+        html, body {width:100%;height:100%;margin:auto;overflow: hidden;}
+        body {display:flex;}
+        #mse {flex:auto;}
+    </style>
+    <script type="text/javascript">
+        window.addEventListener('resize',function(){document.getElementById('mse').style.height=window.innerHeight+'px';});
+    </script>
+</head>
+<body>
+<!-- https://h5player.bytedance.com/config/#%E5%BF%85%E9%80%89%E9%85%8D%E7%BD%AE -->
+<div id="mse"></div>
+<script src="//cdn.jsdelivr.net/npm/xgplayer/browser/index.js" charset="utf-8"></script>
+<script src="//cdn.jsdelivr.net/npm/xgplayer-mp4/browser/index.js" charset="utf-8"></script>
+<script type="text/javascript">
+    let player=new Player({
+        id: 'mse', // DOM节点
+        autoplay: false,
+        volume: 0.3,
+        url:'https://h5player.bytedance.com/video/mp4/xgplayer-demo-360p.mp4',
+        poster: "//s2.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/poster.jpg",
+        playsinline: true,
+        thumbnail: {
+            pic_num: 44,
+            width: 160,
+            height: 90,
+            col: 10,
+            row: 10,
+            urls: ['//s3.pstatp.com/cdn/expire-1-M/byted-player-videos/1.0.0/xgplayer-demo-thumbnail.jpg'],
+        },
+
+        height: window.innerHeight / 3,
+        width: window.innerWidth,
+        whitelist: ['']
+    });
+    player.emit('resourceReady', [{ name: '高清', url: '/video/mp4/xgplayer-demo-480p.mp4' }, { name: '标清', url: '/video/mp4/xgplayer-demo-360p.mp4' }]);
+</script>
+</body>
+</html>
