@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style>
+	.simple-audio {
+  display:block;
+}
+.simple-audio:after {
+  content:'';
+  clear:both;
+  display:block;
+}
+.audio-container {
+      float: left;
+      position: relative;
+      width: 150px;
+      height: 32px;
+      background-color: #f8f8f8;
+      background-image: -webkit-linear-gradient(-180deg, #f8f8f8 0%, #efefef 100%);
+      background-image: -moz-linear-gradient(-180deg, #f8f8f8 0%, #efefef 100%);
+      background-image: -o-linear-gradient(-180deg, #f8f8f8 0%, #efefef 100%);
+      background-image: linear-gradient(-180deg, #f8f8f8 0%, #efefef 100%);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      margin: 0 5px;
+    }
+
+    .audio-container:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 8px;
+      height: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      -moz-transform: rotate(45deg); /* Firefox */
+      -webkit-transform: rotate(45deg); /* Safari 和 Chrome */
+      -o-transform: rotate(45deg); /* Opera */
+      transform: rotate(45deg);
+      left: -5px;
+      top: 11px;
+      background-color: #f8f8f8;
+      background-image: -webkit-linear-gradient(-180deg, #f8f8f8 0%, #efefef 100%);
+      background-image: -moz-linear-gradient(-180deg, #f8f8f8 0%, #efefef 100%);
+      background-image: -o-linear-gradient(-180deg, #f8f8f8 0%, #efefef 100%);
+      background-image: linear-gradient(-180deg, #f8f8f8 0%, #efefef 100%);
+      border-top: none;
+      border-right: none;
+    }
+
+    .audio-status {
+      float: left;
+      margin-top: 8px;
+      margin-left: 15px;
+      width: 13px;
+      height: 15px;
+      background: url(//p1.ssl.qhimg.com/t01154d8bfabb0b30aa.png) no-repeat top left;
+      -webkit-background-size: 100%;
+      background-size: 100%;
+    }
+
+    .audio-status.playing {
+      -webkit-animation: audio_playing 1s infinite;
+      -o-animation: audio_playing 1s infinite;
+      animation: audio_playing 1s infinite;
+    }
+
+    .audio-status.error:after {
+      content:'!';
+      font-size:12px;
+      color:#aaa;
+      margin-left:16px;
+      vertical-align:top;
+    }
+    @-webkit-keyframes audio_playing {
+      0% {
+        background-position: 0 -15px;
+      }
+      30% {
+        background-position: 0 -15px;
+      }
+      30.1% {
+        background-position: 0 -30px;
+      }
+      61% {
+        background-position: 0 -30px;
+      }
+      61.1% {
+        background-position: 0 -45px;
+      }
+      100% {
+        background-position: 0 -45px;
+      }
+    }
+
+    .audio-time {
+      float: left;
+      line-height: 32px;
+      color: #999;
+      font-size: 13px;
+      font-family: SFUIDisplay-Regular, Arial;
+    }
+</style>
+</head>
+<body>
+	<div class="simple-audio">
+	  <div class="audio-container">
+	    <audio width="1" height="1" preload="metadata" data-src="http://createjs.com/gs_tuts/assets/thunder.mp3" data-type="audio/mpeg">
+	      您的浏览器不支持audio标签
+	    </audio>
+	    <span class="audio-status"></span>
+	  </div>
+	  <span class="audio-time"></span>
+	</div>
+	
+	<script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+    <script>
+    	// var v = document.getElementsByTagName("audio")[0]；
+		// v.play();
+		// v.pause()
+
+		function SimpleAudio(context, options) {
+      if (!options) {
+        options = {};
+      }
+      this.settings = $.extend({
+        container: '.audio-container',
+        statusContainer: '.audio-status',
+        totalTimeContainer: '.audio-time',
+        playingClass: 'playing',
+        errorClass:'error'
+      }, options);
+
+      if (context instanceof Element) {
+        this.context = context;
+      } else {
+        var contextArray = $(context);
+        if (contextArray.length > 0) {
+          for (var i = 0; i < contextArray.length; i++) {
+            new SimpleAudio(contextArray[i], this.settings);
+          }
+        }
+        return;
+      }
+      if (this.context && !this.context.isSimpleAudio) {
+        var $audio = $(this.context).find('audio');
+        this.player = this.context.querySelector('audio');
+        this.settings.src = $audio.data('src') || this.settings.src;
+        this.settings.type = $audio.data('type') || this.settings.type;
+
+        this.audioList.push(this);
+        //初始化
+        this.init();
+        this.context.isSimpleAudio = true;
+      }
+
+    }
+
+    SimpleAudio.prototype = {
+      audioList: [],
+      init: function () {
+        var self = this;
+        self.events();
+        // 设置src
+        self.changeSrc();
+
+      },
+      play: function () {
+        var self = this;
+        //console.log(self.currentStatus);
+        if (self.currentStatus === "error") {
+          return;
+        }
+        if (self.currentStatus === "play") {
+          self.pause();
+          return;
+        }
+        //暂停所有其他的音频
+        for (var i = 0; i < self.audioList.length; i++) {
+          if (self.audioList[i] !== self) {
+            self.audioList[i].pause();
+          }
+        }
+        self.player.volume = 1.0;
+        self.player.play().then(function () {
+          // 播放成功
+        }, function (error) {
+          console && console.error(error);
+          $(self.player).trigger('error');
+        });
+      },
+      pause: function () {
+        var self = this;
+        if (self.currentStatus === "play") {
+          self.player.pause();
+        }
+      },
+      events: function () {
+        var self = this;
+        $(self.player).on('loadedmetadata', function () {
+          self.updateTotalTime();
+        }).on('canplay', function () {
+          // 设置自动播放
+          if (self.settings && self.settings.autoplay) {
+            self.play();
+          }
+        }).on('playing', function () {
+          self.changeStatus("play");
+        }).on('ended', function () {
+          self.player.currentTime = 0;
+          self.changeStatus("ended");
+        }).on('pause', function () {
+          self.player.currentTime = 0;
+          self.changeStatus("pause");
+        }).on('error', function (e) {
+          console && console.error(e);
+          self.changeStatus("error");
+        });
+
+        $(self.context).on('click', function () {
+          self.play();
+        });
+      },
+      changeStatus: function (status) {
+        this.currentStatus = status;
+        this.onChangeStatus && this.onChangeStatus(this.currentStatus);
+      },
+      //改变音频源
+      changeSrc: function () {
+        if (this.settings.type && !this.player.canPlayType(this.settings.type)) {
+          console && console.error('audio标签不支持'+this.settings.type+'格式');
+          $(this.player).trigger('error','audio标签不支持'+this.settings.type+'格式');
+          return;
+        }
+        if(this.settings.src){
+          this.currentStatus = '';
+          this.player.src = this.settings.src;
+        }
+      },
+      //更新总时间
+      updateTotalTime: function () {
+        var totalLabel = $(this.context).find(this.settings.totalTimeContainer);
+        if (!totalLabel.text()) {
+          var time = Math.round(this.player.duration);
+          if (isNaN(time)) {
+            time = '';
+          }
+          if (this.settings.updateTotalTime) {
+            this.settings.updateTotalTime(time);
+          } else {
+            totalLabel.text(time + '"');
+          }
+        }
+      },
+      onChangeStatus: function (status) {
+        var statusElement = $(this.context).find(this.settings.statusContainer);
+        if (status === 'play') {
+          statusElement.removeClass(this.settings.errorClass).addClass(this.settings.playingClass);
+        } else if (status === 'error') {
+          statusElement.removeClass(this.settings.playingClass).addClass(this.settings.errorClass);
+        } else {
+          statusElement.removeClass(this.settings.playingClass).removeClass(this.settings.errorClass);
+        }
+      }
+    };
+		if (!window.SimpleAudio) {
+      window.SimpleAudio = SimpleAudio;
+    }
+    new SimpleAudio('.simple-audio');
+    </script>
+</body>
+</html>
