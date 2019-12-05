@@ -1,0 +1,39 @@
+body {
+    font-size: 12px;
+}
+#boxWidth {
+    width: 100px;
+    height: 100px;
+    background-color: #666;
+    animation: width200 1s linear;
+}
+@keyframes width200 {
+    from {
+        width: 100px;
+        opacity: 1;
+    }
+    to {
+        width: 200px;
+        opacity: .2;
+    }
+}
+
+#boxOpacity {
+    width: 100px;
+    height: 100px;
+    background-color: #666;
+    /*animation: opacity1 1s;*/
+    animation-name: opacity1;
+    animation-duration: 3s;
+    animation-timing-function: linear; /*匀速*/
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes opacity1 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

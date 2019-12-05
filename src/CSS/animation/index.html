@@ -3,8 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <title>css3 animation</title>
+  <link rel="stylesheet" href="opacity.css">
 </head>
 <body>
-
+  <div id="boxWidth">width100&gt;200</div>
+  <p>animation: duration 动画时长 | timing-function | delay | iteration-count | direction | fill-mode | play-state | name;</p>
+  <p>css3在动画完成后执行事件</p>
+  <p>用计时器，设定一个和动画时长一样的time，过time事件去执行这个函数。
+    setTimeout(function(){ },time);
+    第二种方法：
+    当-webkit-animation动画结束时有一个webkitAnimationEnd事件，只要监听这个事件就可以了。
+    不同浏览器的AnimationEnd写法 (webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend)</p>
+  <div id="boxOpacity">boxOpacity</div>
+  <script>
+    let boxWidth = document.querySelector("#boxWidth")
+    boxWidth.addEventListener('animationend', function() {
+      console.log(boxWidth.style)
+    })
+  </script>
 </body>
 </html>
