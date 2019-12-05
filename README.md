@@ -1,5 +1,6 @@
 # myJavaScript
 > origin&amp;js framework project.
+>
 ## raw-js
 ### js Array API示范: \raw-js\Array\array.js
 ### js Math API示范: \raw-js\Math\scripts\math.js
@@ -42,3 +43,12 @@
 ## plan
 * 完善jquery table plugin；
 * 自定义导航插件，再弄一个根据scrollTop实现滚动监听的版本；
+
+## struct
+``` bash
+src
+  | AMD 规范
+  | ext 大而全的前端框架
+  | jquery
+    | custom jquery
+```
