@@ -17,8 +17,13 @@
   <div id="boxOpacity">boxOpacity</div>
   <script>
     let boxWidth = document.querySelector("#boxWidth")
+    let boxWidthStyle = window.getComputedStyle(boxWidth, null)
+    function getStyle(obj, attr) {
+      return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr]
+    }
     boxWidth.addEventListener('animationend', function() {
-      console.log(boxWidth.style)
+      // console.log(boxWidthStyle.width)
+      console.log(getStyle(boxWidth, 'width'))
     })
   </script>
 </body>
