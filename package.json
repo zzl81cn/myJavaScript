@@ -21,7 +21,7 @@
   "homepage": "https://github.com/zzl81cn/myJavaScript#readme",
   "devDependencies": {
     "bootstrap": "^3.3.7",
-    "browser-sync": "^2.23.6",
+    "browser-sync": "^2.27.10",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-notify": "^2.2.0",
